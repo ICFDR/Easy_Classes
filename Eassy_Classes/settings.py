@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Eassy_Classes',
+    'website',
     'admin_panel',
+
 ]
 
 MIDDLEWARE = [
