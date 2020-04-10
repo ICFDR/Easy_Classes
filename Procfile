@@ -1,1 +1,1 @@
-web: gunicorn Eassy-Classes.wsgi --log-file -
+web: gunicorn Eassy_Classes.wsgi --log-file -
