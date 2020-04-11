@@ -1,6 +1,3 @@
-<p align="center">
-<img align="centre" src = "assets/logo.png"/>  
-  </p>
-<hr>
+# Eassy Classes
 
-<h1>Eassy Classes</h1>
+![Logo of ICFDR](logo.png)
