@@ -15,6 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+MEDIA_ROOT = os.path.join(BASE_DIR , "media")
+MEDIA_URL = "/media/"
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,7 +28,7 @@ SECRET_KEY = ')(rveqv+zvw9q(2hs#rc&7z7=yr+gxt8i)k7jnjr3&e+r8$@e#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eassyclasses.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['eassyclasses.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -65,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
