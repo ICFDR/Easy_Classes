@@ -97,7 +97,7 @@ class About_SWLP_icons(models.Model) :
 
     icon_text = models.CharField(max_length = 50)
 
-    about = models.ForeignKey(About_SWLP , on_delete = models.CASCADE)
+    section = models.ForeignKey(About_SWLP , on_delete = models.CASCADE)
 
 
 class Join_us(models.Model) :
