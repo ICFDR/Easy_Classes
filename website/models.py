@@ -5,6 +5,12 @@ from django.db import models
 
 
 class Slider(models.Model) :
+
+    """
+    Model for Slider
+
+    """
+
     heading = models.CharField(max_length = 100)
 
     description = models.CharField(max_length = 5000)
@@ -19,11 +25,15 @@ class Vision(models.Model) :
 
     description = models.CharField(max_length = 5000)
 
+
+class Vision_icons(models.Model):
     icon = models.ImageField(upload_to = 'vision-icons/')
 
     icon_name = models.CharField(max_length = 50)
 
     icon_description = models.CharField(max_length = 2000)
+
+    section = models.ForeignKey(Vision, on_delete = models.CASCADE)
 
 
 class Events(models.Model) :
@@ -32,40 +42,40 @@ class Events(models.Model) :
     description = models.CharField(max_length = 5000)
 
 
-class Children_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/child/')
-
-    event = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-
 class All_events(models.Model) :
     image = models.ImageField(upload_to = 'events/all/')
 
-    event = models.ForeignKey(Events , on_delete = models.CASCADE)
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+
+
+class Children_events(models.Model) :
+    image = models.ImageField(upload_to = 'events/child/')
+
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
 
 class Empowerment_events(models.Model) :
     image = models.ImageField(upload_to = 'events/emp/')
 
-    event = models.ForeignKey(Events , on_delete = models.CASCADE)
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
 
 class Health_events(models.Model) :
     image = models.ImageField(upload_to = 'events/health/')
 
-    event = models.ForeignKey(Events , on_delete = models.CASCADE)
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
 
 class Environment_events(models.Model) :
     image = models.ImageField(upload_to = 'events/env/')
 
-    event = models.ForeignKey(Events , on_delete = models.CASCADE)
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
 
 class Elderly_events(models.Model) :
     image = models.ImageField(upload_to = 'events/elderly/')
 
-    event = models.ForeignKey(Events , on_delete = models.CASCADE)
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
 
 class About_SWLP(models.Model) :
@@ -111,7 +121,7 @@ class Leader_says(models.Model) :
 
     about = models.CharField(max_length = 5000)
 
-    leader_says_section = models.ForeignKey(Leader_says_section , on_delete = models.CASCADE)
+    section = models.ForeignKey(Leader_says_section , on_delete = models.CASCADE)
 
 
 class Board_team(models.Model) :
@@ -128,3 +138,37 @@ class Organizing_team(models.Model) :
     name = models.CharField(max_length = 50)
 
     role = models.CharField(max_length = 50)
+
+
+class Our_childrens_section(models.Model) :
+    heading = models.CharField(max_length = 50)
+
+    description = models.CharField(max_length = 5000)
+
+
+class Our_childrens(models.Model) :
+    image = models.ImageField(upload_to = 'our_childrens/')
+
+    name = models.CharField(max_length = 50)
+
+    description = models.CharField(max_length = 5000)
+
+    section = models.ForeignKey(Our_childrens_section , on_delete = models.CASCADE)
+
+
+class Blog_section(models.Model) :
+    heading = models.CharField(max_length = 50)
+
+    description = models.CharField(max_length = 5000)
+
+
+class Blogs(models.Model) :
+    image = models.ImageField(upload_to = 'blogs/')
+
+    name = models.CharField(max_length = 50)
+
+    role = models.CharField(max_length = 50)
+
+    content = models.CharField(max_length = 5000)
+
+    section = models.ForeignKey(Blog_section, on_delete = models.CASCADE)
