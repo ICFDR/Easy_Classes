@@ -76,16 +76,16 @@ class Events(models.Model) :
         return self.heading
 
 
-# class AllEvents(models.Model) :
-#     image = models.ImageField(upload_to = 'images/events/all/')
-#
-#     section = models.ForeignKey(Events , on_delete = models.CASCADE)
-#
-#     class Meta:
-#         verbose_name_plural = 'AllEvents'
-#
-#     def __str__(self):
-#         return self.image
+class AllEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/all/')
+
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'AllEvents'
+
+    def __str__(self):
+        return self.image
 
 
 class ChildrenEvents(models.Model) :

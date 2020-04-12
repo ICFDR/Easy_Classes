@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import *
+from .models import ( Slider, SliderImage, Vision, VisionIcons,
+                    Events, AllEvents, ChildrenEvents, EmpowermentEvents,
+                    EnvironmentEvents,HealthEvents, ElderlyEvents,
+                    AboutSWLP,AboutSWLPIcons,JoinUs, LeaderSays,
+                    LeaderSaysSection, BoardTeam, OurChildrens,
+                    OrganizingTeam,BlogSection, Blogs,
+                    OurChildrensSection
+                    )
+
+
 # Register your models here.
 
 admin.site.register(Slider)
@@ -12,7 +21,7 @@ admin.site.register(VisionIcons)
 
 admin.site.register(Events)
 
-#admin.site.register(AllEvents)
+admin.site.register(AllEvents)
 
 admin.site.register(ChildrenEvents)
 
