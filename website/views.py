@@ -27,4 +27,4 @@ def index(request):
 
     }
 
-    return render(request, 'test.html', data)
+    return render(request, 'index.html', data)
