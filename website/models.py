@@ -13,162 +13,298 @@ class Slider(models.Model) :
 
     heading = models.CharField(max_length = 100)
 
-    description = models.CharField(max_length = 5000)
-
-    image = models.ImageField(upload_to = 'slider/')
+    description = models.TextField()
 
     button_text = models.CharField(max_length = 50)
+
+    class Meta:
+        verbose_name_plural = 'Slider'
+
+    def __str__(self):
+        return self.heading
+
+
+class SliderImage(models.Model):
+    image = models.ImageField(upload_to = 'images/slider/')
+
+    section = models.ForeignKey(Slider, on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'SliderImage'
+
+    # def __str__(self):
+    #     return self.image
 
 
 class Vision(models.Model) :
     heading = models.CharField(max_length = 100)
 
-    description = models.CharField(max_length = 5000)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'Vision'
+
+    def __str__(self):
+        return self.heading
 
 
-class Vision_icons(models.Model):
-    icon = models.ImageField(upload_to = 'vision-icons/')
+class VisionIcons(models.Model):
+    icon = models.ImageField(upload_to = 'images/vision-icons/')
 
     icon_name = models.CharField(max_length = 50)
 
-    icon_description = models.CharField(max_length = 2000)
+    icon_description = models.TextField()
 
     section = models.ForeignKey(Vision, on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'VisionIcons'
+
+    def __str__(self):
+        return self.icon_name
 
 
 class Events(models.Model) :
     heading = models.CharField(max_length = 100)
 
-    description = models.CharField(max_length = 5000)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'Events'
+
+    def __str__(self):
+        return self.heading
 
 
-class All_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/all/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-
-class Children_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/child/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-
-class Empowerment_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/emp/')
+class AllEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/all/')
 
     section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
+    class Meta:
+        verbose_name_plural = 'AllEvents'
 
-class Health_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/health/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-
-class Environment_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/env/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+    def __str__(self):
+        return self.image
 
 
-class Elderly_events(models.Model) :
-    image = models.ImageField(upload_to = 'events/elderly/')
+class ChildrenEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/child/')
 
     section = models.ForeignKey(Events , on_delete = models.CASCADE)
 
+    class Meta:
+        verbose_name_plural = 'ChildrenEvents'
 
-class About_SWLP(models.Model) :
+    def __str__(self):
+        return self.image
+
+
+class EmpowermentEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/emp/')
+
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'EmpowermentEvents'
+
+    def __str__(self):
+        return self.image
+
+
+class HealthEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/health/')
+
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'HealthEvents'
+
+    def __str__(self):
+        return self.image
+
+
+class EnvironmentEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/env/')
+
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'EnvironmentEvents'
+
+    def __str__(self):
+        return self.image
+
+
+class ElderlyEvents(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/elderly/')
+
+    section = models.ForeignKey(Events , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'ElderlyEvents'
+
+    def __str__(self):
+        return self.image
+
+
+class AboutSWLP(models.Model) :
     heading = models.CharField(max_length = 100)
 
-    description = models.CharField(max_length = 5000)
+    description = models.TextField()
 
-    image = models.ImageField(upload_to = 'about_swlp/image')
+    image = models.ImageField(upload_to = 'images/about_swlp')
 
     image_heading = models.CharField(max_length = 100)
 
-    image_description = models.CharField(max_length = 2000)
+    image_description = models.TextField()
 
     image_button_text = models.CharField(max_length = 50)
 
+    class Meta:
+        verbose_name_plural = 'AboutSWLP'
 
-class About_SWLP_icons(models.Model) :
+    def __str__(self):
+        return self.heading
+
+
+class AboutSWLPIcons(models.Model) :
     icon = models.ImageField(upload_to = 'about_swlp/icons/')
 
     icon_text = models.CharField(max_length = 50)
 
-    section = models.ForeignKey(About_SWLP , on_delete = models.CASCADE)
+    section = models.ForeignKey(AboutSWLP , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'AboutSWLPIcons'
+
+    def __str__(self):
+        return self.icon_text
 
 
-class Join_us(models.Model) :
+class JoinUs(models.Model) :
     heading = models.CharField(max_length = 100)
 
-    description = models.CharField(max_length = 5000)
+    description = models.TextField()
 
     button_text = models.CharField(max_length = 50)
 
+    class Meta:
+        verbose_name_plural = 'JoinUs'
 
-class Leader_says_section(models.Model) :
+    def __str__(self):
+        return self.heading
+
+
+class LeaderSaysSection(models.Model) :
     heading = models.CharField(max_length = 100)
 
     description = models.CharField(max_length = 5000)
 
+    class Meta:
+        verbose_name_plural = 'LeaderSaysSection'
 
-class Leader_says(models.Model) :
-    image = models.ImageField(upload_to = 'leaders/')
+    def __str__(self):
+        return self.heading
+
+
+class LeaderSays(models.Model) :
+    image = models.ImageField(upload_to = 'images/leaders/')
 
     name = models.CharField(max_length = 50)
 
-    about = models.CharField(max_length = 5000)
+    about = models.TextField()
 
-    section = models.ForeignKey(Leader_says_section , on_delete = models.CASCADE)
+    section = models.ForeignKey(LeaderSaysSection , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'LeaderSays'
+
+    def __str__(self):
+        return self.name
 
 
-class Board_team(models.Model) :
-    image = models.ImageField(upload_to = 'board/')
+class BoardTeam(models.Model) :
+    image = models.ImageField(upload_to = 'images/board/')
 
     name = models.CharField(max_length = 50)
 
     role = models.CharField(max_length = 50)
 
+    class Meta:
+        verbose_name_plural = 'BoardTeam'
 
-class Organizing_team(models.Model) :
-    image = models.ImageField(upload_to = 'organizing/')
+    def __str__(self):
+        return self.name
+
+
+class OrganizingTeam(models.Model) :
+    image = models.ImageField(upload_to = 'images/organizing/')
 
     name = models.CharField(max_length = 50)
 
     role = models.CharField(max_length = 50)
 
+    class Meta:
+        verbose_name_plural = 'OrganizingTeam'
 
-class Our_childrens_section(models.Model) :
+    def __str__(self):
+        return self.name
+
+
+class OurChildrensSection(models.Model) :
     heading = models.CharField(max_length = 50)
 
-    description = models.CharField(max_length = 5000)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'OurChildrensSection'
+
+    def __str__(self):
+        return self.heading
 
 
-class Our_childrens(models.Model) :
-    image = models.ImageField(upload_to = 'our_childrens/')
+class OurChildrens(models.Model) :
+    image = models.ImageField(upload_to = 'images/our_childrens/')
 
     name = models.CharField(max_length = 50)
 
     description = models.CharField(max_length = 5000)
 
-    section = models.ForeignKey(Our_childrens_section , on_delete = models.CASCADE)
+    section = models.ForeignKey(OurChildrensSection , on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'OurChildrens'
+
+    def __str__(self):
+        return self.name
 
 
-class Blog_section(models.Model) :
+class BlogSection(models.Model) :
     heading = models.CharField(max_length = 50)
 
-    description = models.CharField(max_length = 5000)
+    description = models.TextField(max_length = 5000)
+
+    class Meta:
+        verbose_name_plural = 'BlogSection'
+
+    def __str__(self):
+        return self.heading
 
 
 class Blogs(models.Model) :
-    image = models.ImageField(upload_to = 'blogs/')
+    image = models.ImageField(upload_to = 'images/blogs/')
 
     name = models.CharField(max_length = 50)
 
     role = models.CharField(max_length = 50)
 
-    content = models.CharField(max_length = 5000)
+    content = models.TextField()
 
-    section = models.ForeignKey(Blog_section, on_delete = models.CASCADE)
+    section = models.ForeignKey(BlogSection, on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Blogs'
+
+    def __str__(self):
+        return self.name
