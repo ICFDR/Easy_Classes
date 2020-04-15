@@ -9160,3 +9160,31 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-transform-style: preserve-3d;
+-moz-transform-style: preserve-3d;
+transform-style: preserve-3d;
+}
+
+.carousel-caption{
+	top: 60%;
+transform: translateY(-40%);
+}
+
+.display-4{
+	
+color: white;
+}
+
+.carousel-indicators{
+	top: 85%;
+transform: translateY(-15%);
+}
