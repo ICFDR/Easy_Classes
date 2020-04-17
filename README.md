@@ -1,3 +1,3 @@
 # Eassy Classes
 
-![Logo of ICFDR](favicon.png)
+![Logo of ICFDR](media/favicon.png)
