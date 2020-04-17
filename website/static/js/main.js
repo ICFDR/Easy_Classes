@@ -109,11 +109,13 @@
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
+					document.getElementsByClassName('navbar-brand')[0].innerHTML = "ICFDR";
 				}
 			} 
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
 					navbar.addClass('awake');	
+					document.getElementsByClassName('navbar-brand')[0].innerHTML = '<img src="/media/favicon.png" width="80px"/>';
 				}
 				
 				if(sd.length > 0) {
