@@ -19,9 +19,8 @@
 		{% if forloop.first %}
 	  <div class="carousel-item active" style="background-image: url('/media/{{ slider.image }}')">
 		<div class="carousel-caption d-none d-md-block">
-		  <h2 class="display-4">{{ SliderImage|length }}{{ slider.section.heading }}</h2>
+		  <h2 class="display-4">{{ slider.section.heading }}</h2>
 		  <p class="lead">{{ slider.section.description }}</p>
-		  <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="https://vimeo.com/45830194" class="btn btn-white btn-outline-white px-4 py-3 popup-vimeo"><span class="icon-play mr-2"></span>{{ slider.section.button_text }}</a></p>
 		</div>
 	  </div>
 	  {% else %}
@@ -29,7 +28,6 @@
 		<div class="carousel-caption d-none d-md-block">
 		  <h2 class="display-4">{{ slider.section.heading }}</h2>
 		  <p class="lead">{{ slider.section.description }}</p>
-		  <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="https://vimeo.com/45830194" class="btn btn-white btn-outline-white px-4 py-3 popup-vimeo"><span class="icon-play mr-2"></span>{{ slider.section.button_text }}</a></p>
 		</div>
 	  </div>
 	  {% endif %}
