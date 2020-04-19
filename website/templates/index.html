@@ -57,15 +57,17 @@
               </div>
             </div>
           </div>
+		  {% for join in JoinUs %}
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18 color-3 align-items-stretch">
               <div class="text">
-              	<h3 class="mb-4">Be a Volunteer</h3>
-              	<p>Even the all-powerful Pointing has no control about the blind texts.</p>
-              	<p><a href="#" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
+              	<h3 class="mb-4">{{ join.heading }}</h3>
+              	<p>{{ join.description }}</p>
+              	<p><a href="#" class="btn btn-white px-3 py-2 mt-2">{{ join.button_text }}</a></p>
               </div>
             </div>
           </div>
+		  {% endfor %}
     		</div>
     	</div>
     </section>
