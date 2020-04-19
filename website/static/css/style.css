@@ -79,7 +79,8 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem; 
+  text-align: center;}
 
 abbr[title],
 abbr[data-original-title] {
@@ -4167,12 +4168,16 @@ input[type="button"].btn-block {
   display: flex;
   -webkit-box-align: start;
   -ms-flex-align: start;
-  align-items: flex-start; }
+  flex-direction: column;
+  align-items: center; }
 
 .media-body {
   -webkit-box-flex: 1;
   -ms-flex: 1;
-  flex: 1; }
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;}
 
 .list-group {
   display: -webkit-box;

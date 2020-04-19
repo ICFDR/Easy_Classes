@@ -49,7 +49,7 @@ class Vision(models.Model) :
 
 
 class VisionIcons(models.Model):
-    icon = models.ImageField(upload_to = 'images/vision-icons/')
+    icon = models.CharField(max_length = 20)
 
     icon_name = models.CharField(max_length = 50)
 

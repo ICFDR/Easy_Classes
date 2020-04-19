@@ -74,39 +74,23 @@
     	<div class="container">
 		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-8 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Vision</h2>
-            <p>iCFDR promotes quality education to the underprivileged sections in developing them as an individual to be able to adjust and sustain in today's global arena. Many children are missing out in life-changing opportunities.</p>
+            <h2 class="mb-4">{{ Vision.0.heading }}</h2>
+            <p>{{ Vision.0.description }}</p>
           </div>
         </div>
     		<div class="row">
-          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 d-flex services p-3 py-4 d-block">
-              <div class="icon d-flex mb-3"><span class="flaticon-donation-1"></span></div>
-              <div class="media-body pl-4">
-                <h3 class="heading">Make Donation</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 d-flex services p-3 py-4 d-block">
-              <div class="icon d-flex mb-3"><span class="flaticon-charity"></span></div>
-              <div class="media-body pl-4">
-                <h3 class="heading">Become A Volunteer</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 d-flex services p-3 py-4 d-block">
-              <div class="icon d-flex mb-3"><span class="flaticon-donation"></span></div>
-              <div class="media-body pl-4">
-                <h3 class="heading">Sponsorship</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-              </div>
-            </div>    
-          </div>
-        </div>
+			{% for vision in VisionIcons %}
+			  <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 d-flex services p-3 py-4 d-block">
+				  <div class="icon d-flex mb-3"><span class="{{ vision.icon }}"></span></div>
+				  <div class="media-body">
+					<h3 class="heading">{{ vision.icon_name }}</h3>
+					<p>{{ vision.icon_description }}</p>
+				  </div>
+				</div>      
+			  </div>
+			{% endfor %}
+			</div>
     	</div>
     </section>
 
