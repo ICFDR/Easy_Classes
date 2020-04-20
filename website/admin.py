@@ -1,10 +1,8 @@
 from django.contrib import admin
 from .models import ( Slider, SliderImage, Vision, VisionIcons,
-                    Events, AllEvents, ChildrenEvents, EmpowermentEvents,
-                    EnvironmentEvents,HealthEvents, ElderlyEvents,
-                    AboutSWLP,AboutSWLPIcons,JoinUs, LeaderSays,
-                    LeaderSaysSection, BoardTeam, OurChildrens,
-                    OrganizingTeam,BlogSection, Blogs,
+                    Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
+                    JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
+                    OurChildrens, OrganizingTeam,BlogSection, Blogs,
                     OurChildrensSection
                     )
 
@@ -19,19 +17,9 @@ admin.site.register(Vision)
 
 admin.site.register(VisionIcons)
 
-admin.site.register(Events)
+admin.site.register(Gallery)
 
-admin.site.register(AllEvents)
-
-admin.site.register(ChildrenEvents)
-
-admin.site.register(EmpowermentEvents)
-
-admin.site.register(EnvironmentEvents)
-
-admin.site.register(HealthEvents)
-
-admin.site.register(ElderlyEvents)
+admin.site.register(OurCauses)
 
 admin.site.register(AboutSWLP)
 

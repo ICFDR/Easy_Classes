@@ -66,88 +66,24 @@ class VisionIcons(models.Model):
         return self.icon_name
 
 
-class Events(models.Model) :
+class Gallery(models.Model) :
+    image = models.ImageField(upload_to = 'images/events/all/')
+
+    tag = models.CharField(max_length = 20)
+
+    class Meta:
+        verbose_name_plural = 'Gallery'
+
+    def __str__(self):
+        return self.tag
+
+
+class OurCauses(models.Model):
     heading = models.CharField(max_length = 100)
 
     description = models.TextField()
 
-    class Meta:
-        verbose_name_plural = 'Events'
-
-    def __str__(self):
-        return self.heading
-
-
-class AllEvents(models.Model) :
-    image = models.ImageField(upload_to = 'images/events/all/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'AllEvents'
-
-    def __str__(self):
-        return self.image
-
-
-class ChildrenEvents(models.Model) :
-    image = models.ImageField(upload_to = 'images/events/child/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'ChildrenEvents'
-
-    def __str__(self):
-        return self.image
-
-
-class EmpowermentEvents(models.Model) :
-    image = models.ImageField(upload_to = 'images/events/emp/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'EmpowermentEvents'
-
-    def __str__(self):
-        return self.image
-
-
-class HealthEvents(models.Model) :
-    image = models.ImageField(upload_to = 'images/events/health/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'HealthEvents'
-
-    def __str__(self):
-        return self.image
-
-
-class EnvironmentEvents(models.Model) :
-    image = models.ImageField(upload_to = 'images/events/env/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'EnvironmentEvents'
-
-    def __str__(self):
-        return self.image
-
-
-class ElderlyEvents(models.Model) :
-    image = models.ImageField(upload_to = 'images/events/elderly/')
-
-    section = models.ForeignKey(Events , on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'ElderlyEvents'
-
-    def __str__(self):
-        return self.image
+    image = models.ImageField(upload_to = 'images/our_causes')
 
 
 class AboutSWLP(models.Model) :
