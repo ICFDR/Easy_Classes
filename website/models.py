@@ -73,7 +73,7 @@ class Gallery(models.Model) :
         verbose_name_plural = 'Gallery'
 
     def __str__(self):
-        return self.heading
+        return self.tag
 
 
 class OurCauses(models.Model):
