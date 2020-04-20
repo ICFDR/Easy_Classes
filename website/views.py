@@ -1,5 +1,10 @@
 from django.shortcuts import render
-from .models import *
+from .models import ( Slider, SliderImage, Vision, VisionIcons,
+                    Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
+                    JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
+                    OurChildrens, OrganizingTeam,BlogSection, Blogs,
+                    OurChildrensSection
+                    )
 # Create your views here.
 def index(request):
 
@@ -8,11 +13,8 @@ def index(request):
         'SliderImage':SliderImage.objects.all(),
         'Vision':Vision.objects.all(),
         'VisionIcons':VisionIcons.objects.all(),
-        'Events':Events.objects.all(),
-        'ChildrenEvents':ChildrenEvents.objects.all(),
-        'EmpowermentEvents':EmpowermentEvents.objects.all(),
-        'HealthEvents':HealthEvents.objects.all(),
-        'EnvironmentEvents':ElderlyEvents.objects.all(),
+        'Gallery':Gallery.objects.all(),
+        'OurCauses':OurCauses.objects.all(),
         'AboutSWLP':AboutSWLP.objects.all(),
         'AboutSWLPIcons':AboutSWLPIcons.objects.all(),
         'JoinUs':JoinUs.objects.all(),
