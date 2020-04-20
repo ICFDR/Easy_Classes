@@ -67,7 +67,7 @@ class VisionIcons(models.Model):
 class Gallery(models.Model) :
     image = models.ImageField(upload_to = 'images/events/all/')
 
-    heading = models.TextField()
+    tag = models.CharField(max_length = 20)
 
     class Meta:
         verbose_name_plural = 'Gallery'
