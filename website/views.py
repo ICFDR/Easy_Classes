@@ -13,7 +13,7 @@ def index(request):
         'SliderImage':SliderImage.objects.all(),
         'Vision':Vision.objects.all(),
         'VisionIcons':VisionIcons.objects.all(),
-        'Gallery':Gallery.objects.all().reverse(),
+        'Gallery':Gallery.objects.all().order_by('-id')[:8],
         'OurCauses':OurCauses.objects.all(),
         'AboutSWLP':AboutSWLP.objects.all(),
         'AboutSWLPIcons':AboutSWLPIcons.objects.all(),
