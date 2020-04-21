@@ -40,7 +40,8 @@ class SliderImage(models.Model):
 class Vision(models.Model) :
     heading = models.CharField(max_length = 100)
 
-    description = models.TextField()
+    less = models.TextField(null = True)
+    more = models.TextField(null=True)
 
     class Meta:
         verbose_name_plural = 'Vision'
