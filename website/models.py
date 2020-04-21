@@ -233,9 +233,9 @@ class BlogSection(models.Model) :
 class Blogs(models.Model) :
     image = models.ImageField(upload_to = 'images/blogs/')
 
-    name = models.CharField(max_length = 50)
-
     author = models.CharField(max_length = 50)
+
+    role = models.CharField(max_length = 50)
 
     pub_date = datetime.today()
 
