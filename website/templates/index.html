@@ -275,9 +275,11 @@
 		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
             <h2 class="mb-4">Gallery</h2>
-            <p>Gallery Discription Will Come here [Will be static]</p>
           </div>
-        </div>
+        </div>	
+		{% for obj in Gallery|slice:":1" %}
+			{{ obj.image }}
+		{% endfor %}
     	<div class="d-md-flex">
 	    	<a href="{% static 'images/cause-2.jpg' %}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({% static 'images/cause-2.jpg' %});">
 	    		<div class="icon d-flex justify-content-center align-items-center">
