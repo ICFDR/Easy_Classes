@@ -237,7 +237,7 @@ class Blogs(models.Model) :
 
     author = models.CharField(max_length = 50)
 
-    pub_date = datetime.today().strftime('%d-%m-%Y')
+    pub_date = datetime.today()
 
     content = models.TextField()
 
