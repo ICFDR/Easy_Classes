@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 # Create your models here.
@@ -221,6 +222,7 @@ class BlogSection(models.Model) :
 
     description = models.TextField(max_length = 5000)
 
+
     class Meta:
         verbose_name_plural = 'BlogSection'
 
@@ -233,7 +235,9 @@ class Blogs(models.Model) :
 
     name = models.CharField(max_length = 50)
 
-    role = models.CharField(max_length = 50)
+    author = models.CharField(max_length = 50)
+
+    pub_date = datetime.today().strftime('%d-%m-%Y')
 
     content = models.TextField()
 
