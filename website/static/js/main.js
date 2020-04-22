@@ -115,7 +115,7 @@
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
 					navbar.addClass('awake');	
-					document.getElementsByClassName('navbar-brand')[0].innerHTML = '<img src="/media/favicon.png" width="80px"/>';
+					document.getElementsByClassName('navbar-brand')[0].innerHTML = '<img src="/media/favicon.webp" width="80px"/>';
 				}
 				
 				if(sd.length > 0) {
