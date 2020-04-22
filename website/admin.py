@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ( Slider, SliderImage, Vision, VisionIcons,
+from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
@@ -10,8 +10,6 @@ from .models import ( Slider, SliderImage, Vision, VisionIcons,
 # Register your models here.
 
 admin.site.register(Slider)
-
-admin.site.register(SliderImage)
 
 admin.site.register(Vision)
 

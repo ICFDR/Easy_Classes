@@ -16,7 +16,7 @@ class Slider(models.Model) :
 
     description = models.TextField()
 
-    button_text = models.CharField(max_length = 50)
+    image = models.ImageField(upload_to = 'images/slider/', default='',null = True, blank = True)
 
     class Meta:
         verbose_name_plural = 'Slider'

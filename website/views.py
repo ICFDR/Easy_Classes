@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ( Slider, SliderImage, Vision, VisionIcons,
+from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
@@ -10,7 +10,6 @@ def index(request):
 
     data = {
         'Slider':Slider.objects.all(),
-        'SliderImage':SliderImage.objects.all(),
         'Vision':Vision.objects.all(),
         'VisionIcons':VisionIcons.objects.all(),
         'GalleryRow1':Gallery.objects.all().order_by('-id')[:4],

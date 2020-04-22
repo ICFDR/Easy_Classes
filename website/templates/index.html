@@ -6,7 +6,7 @@
 <header>
   <div id="carousel" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
-	{% for slider in SliderImage %}
+	{% for slider in Slider %}
 		{% if forloop.first %}
 	  <li data-target="#carousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
 		{% else %}
@@ -15,19 +15,19 @@
 	{% endfor %}
 	</ol>
 	<div class="carousel-inner" role="listbox">
-	  {% for slider in SliderImage %}
+	  {% for slider in Slider %}
 		{% if forloop.first %}
-	  <div class="carousel-item active" style="background-image: url('/media/{{ slider.image }}')">
+	  <div class="carousel-item active" style="background-image: url('{{ slider.image.url }}')">
 		<div class="carousel-caption d-none d-md-block">
-		  <h2 class="display-4">{{ slider.section.heading }}</h2>
-		  <p class="lead">{{ slider.section.description }}</p>
+		  <h2 class="display-4">{{ slider.heading }}</h2>
+		  <p class="lead">{{ slider.description }}</p>
 		</div>
 	  </div>
 	  {% else %}
-	  <div class="carousel-item" style="background-image: url('/media/{{ slider.image }}')">
+	  <div class="carousel-item" style="background-image: url('{{ slider.image.url }}')">
 		<div class="carousel-caption d-none d-md-block">
-		  <h2 class="display-4">{{ slider.section.heading }}</h2>
-		  <p class="lead">{{ slider.section.description }}</p>
+		  <h2 class="display-4">{{ slider.heading }}</h2>
+		  <p class="lead">{{ slider.description }}</p>
 		</div>
 	  </div>
 	  {% endif %}
