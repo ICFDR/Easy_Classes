@@ -16,26 +16,13 @@ class Slider(models.Model) :
 
     description = models.TextField()
 
-    image = models.ImageField(upload_to = 'images/slider/', default='',null = True, blank = True)
+    image = models.ImageField(upload_to = 'images/slider/', default='')
 
     class Meta:
         verbose_name_plural = 'Slider'
 
     def __str__(self):
         return self.heading
-
-
-class SliderImage(models.Model):
-    image = models.ImageField(upload_to = 'images/slider/')
-
-    section = models.ForeignKey(Slider, on_delete = models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'SliderImage'
-
-    # def __str__(self):
-    #     return self.image
-
 
 class Vision(models.Model) :
     heading = models.CharField(max_length = 100)
