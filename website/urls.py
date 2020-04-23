@@ -4,4 +4,5 @@ from .import views
 
 urlpatterns = [
     path('', views.index),
+    path('blogs/<int:id>',views.blog_view),
 ]

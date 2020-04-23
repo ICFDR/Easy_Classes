@@ -235,4 +235,4 @@ class Blogs(models.Model) :
         verbose_name_plural = 'Blogs'
 
     def __str__(self):
-        return self.name
+        return self.author

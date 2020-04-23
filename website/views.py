@@ -12,8 +12,7 @@ def index(request):
         'Slider':Slider.objects.all(),
         'Vision':Vision.objects.all(),
         'VisionIcons':VisionIcons.objects.all(),
-        'GalleryRow1':Gallery.objects.all()[:4],
-        'GalleryRow2':Gallery.objects.all()[4:8],
+        'Gallery':Gallery.objects.all().order_by('-id')[:8],
         'OurCauses':OurCauses.objects.all(),
         'AboutSWLP':AboutSWLP.objects.all(),
         'AboutSWLPIcons':AboutSWLPIcons.objects.all(),
@@ -30,3 +29,11 @@ def index(request):
     }
 
     return render(request, 'index.html', data)
+
+
+def blog_view(request,id):
+
+    data = {'blog':Blogs.objects.filter(id = id)[0]}
+    print(data['blog'])
+
+    return render(request, 'blog.html', data)
