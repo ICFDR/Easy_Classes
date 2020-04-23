@@ -328,8 +328,8 @@ h6, .h6 {
   font-size: 1rem; }
 
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300; }
+  font-size: 2rem;
+  font-weight: 500; }
 
 .display-1 {
   font-size: 6rem;
@@ -347,8 +347,8 @@ h6, .h6 {
   line-height: 1.2; }
 
 .display-4 {
-  font-size: 3.5rem;
-  font-weight: 300;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2; }
 
 hr {
@@ -4919,7 +4919,6 @@ button.close {
 .carousel-caption {
   position: absolute;
   right: 15%;
-  bottom: 20px;
   left: 15%;
   z-index: 10;
   padding-top: 20px;

@@ -14,7 +14,7 @@ class Slider(models.Model) :
 
     heading = models.CharField(max_length = 100)
 
-    description = models.TextField()
+    description = models.CharField(max_length = 100,blank=True,default='')
 
     image = models.ImageField(upload_to = 'images/slider/', default='')
 
@@ -27,8 +27,8 @@ class Slider(models.Model) :
 class Vision(models.Model) :
     heading = models.CharField(max_length = 100)
 
-    less = models.TextField(null = True)
-    more = models.TextField(null=True)
+    less = models.TextField(default='')
+    more = models.TextField(default='')
 
     class Meta:
         verbose_name_plural = 'Vision'
