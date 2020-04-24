@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date, datetime
+from datetime import date
 from django.utils.text import slugify
 
 # Create your models here.
