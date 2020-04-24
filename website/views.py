@@ -5,9 +5,8 @@ from .models import ( Slider, Vision, VisionIcons,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
                     OurChildrensSection
                     )
-# Create your views here.
-def index(request,moveToBlogs=None):
 
+def index(request,moveToBlogs=None):
     data = {
         'Slider':Slider.objects.all(),
         'Vision':Vision.objects.all(),
@@ -21,12 +20,10 @@ def index(request,moveToBlogs=None):
         'BlogSection':BlogSection.objects.all(),
         'Blogs':Blogs.objects.all().order_by('-id')[:3]
     }
-
     return render(request, 'index.html', data)
 
 def blog_view(request,id=None):
     blog = Blogs.objects.filter(id = id)
-
     if blog:
         data = {'blog':blog[0]}
 
@@ -35,25 +32,20 @@ def blog_view(request,id=None):
     return bloglist(request)
 
 def bloglist(request):
-
     data = {
         'BlogSection':BlogSection.objects.all(),
         'Blogs':Blogs.objects.all().order_by('-id')
     }
-
     return render(request, 'bloglist.html', data)
 	
 def gallery(request):
-
     data = {
         'Gallery':Gallery.objects.all()
     }
-
     return render(request, 'gallery.html', data)
 	
 	
 def about(request):
-
     data = {
         'AboutSWLP':AboutSWLP.objects.all(),
         'AboutSWLPIcons':AboutSWLPIcons.objects.all(),
@@ -62,5 +54,4 @@ def about(request):
         'BoardTeam':BoardTeam.objects.all(),
         'OrganizingTeam':OrganizingTeam.objects.all(),
     }
-
     return render(request, 'about.html', data)
