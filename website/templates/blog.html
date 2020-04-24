@@ -5,16 +5,20 @@
 {% load static %}
 
 <header class="masthead" style="height: 100vh;min-height: 500px;background-image: url('{{ blog.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+<div class="scroll" style="position: absolute;right: 2rem;bottom: 0.5rem;">
+	Scroll Down to read full Article
+</div>
 </header>
-  <div class="container mt-5 mb-5">
+  <div class="container mb-5" style="margin-top:-200px;">
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="mt-4">{{ blog.heading }}</h1>
+        <h1 class="mt-4" style="color:#fff;">{{ blog.heading }}</h1>
         <p class="lead text-left">by {{ blog.author }}</p>
 		<hr>
         <p class="text-left">Posted on {{ blog.pub_date }}</p>
-        <hr>
-		{{ blog.content }}
+			<div class="mt-5" style="font-size:larger;">
+				{{ blog.content }}
+			</div>
 		</div>
 	</div>
 </div>
