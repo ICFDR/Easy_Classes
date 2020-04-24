@@ -6,7 +6,7 @@
 
 <header class="masthead" style="width: 100vw;height: 100px;background: #252525;">
 </header>
-  
+
 <section id="blogs" class="ftco-section">
   <div class="container">
 	<div class="row justify-content-center mb-5 pb-3">
@@ -18,14 +18,14 @@
 	{% for blog in Blogs %}
 	  <div class="col-md-4 d-flex ftco-animate">
 		<div class="blog-entry align-self-stretch">
-		  <a href="blogs/{{ blog.id }}" class="block-20" style="background-image: url('{{ blog.image.url }}');">
+		  <a href="blogs/{{ blog.slug }}" class="block-20" style="background-image: url('{{ blog.image.url }}');">
 		  </a>
 		  <div class="text p-4 d-block">
 			<div class="meta mb-3">
 			  <div>{{ blog.pub_date }}</div>
 			  <div>{{ blog.author }}</div>
 			</div>
-			<h3 class="heading mt-3"><a href="blogs/{{ blog.id }}">{{ blog.heading }}</a></h3>
+			<h3 class="heading mt-3"><a href="blogs/{{ blog.slug }}">{{ blog.heading }}</a></h3>
 			<p>{{ blog.summary }}</p>
 		  </div>
 		</div>

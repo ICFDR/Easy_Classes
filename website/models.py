@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -16,6 +17,8 @@ class Slider(models.Model) :
     description = models.CharField(max_length = 100,blank=True,default='')
 
     image = models.ImageField(upload_to = 'images/slider/', default='')
+
+    image_alt_txt = models.CharField(max_length= 100, blank= True)
 
     class Meta:
         verbose_name_plural = 'Slider'
@@ -55,6 +58,8 @@ class VisionIcons(models.Model):
 class Gallery(models.Model) :
     image = models.ImageField(upload_to = 'images/gallery')
 
+    image_alt_txt = models.CharField(max_length=100, blank=True)
+
     tag = models.CharField(max_length = 20)
 
     class Meta:
@@ -71,6 +76,8 @@ class OurCauses(models.Model):
 
     image = models.ImageField(upload_to = 'images/our_causes')
 
+    image_alt_txt = models.CharField(max_length=100, blank=True)
+
 
 class AboutSWLP(models.Model) :
     heading = models.CharField(max_length = 100)
@@ -78,6 +85,8 @@ class AboutSWLP(models.Model) :
     description = models.TextField()
 
     image = models.ImageField(upload_to = 'images/about_swlp')
+
+    image_alt_txt = models.CharField(max_length=100, blank=True)
 
     image_heading = models.CharField(max_length = 100)
 
@@ -94,6 +103,8 @@ class AboutSWLP(models.Model) :
 
 class AboutSWLPIcons(models.Model) :
     icon = models.ImageField(upload_to = 'about_swlp/icons/')
+
+    image_alt_txt = models.CharField(max_length=100, blank=True)
 
     icon_text = models.CharField(max_length = 50)
 
@@ -135,6 +146,8 @@ class LeaderSaysSection(models.Model) :
 class LeaderSays(models.Model) :
     image = models.ImageField(upload_to = 'images/leaders/')
 
+    image_alt_txt = models.CharField(max_length=100, blank=True)
+
     name = models.CharField(max_length = 50)
 
     about = models.TextField()
@@ -151,6 +164,8 @@ class LeaderSays(models.Model) :
 class BoardTeam(models.Model) :
     image = models.ImageField(upload_to = 'images/board/')
 
+    image_alt_txt = models.CharField(max_length=100, blank=True)
+
     name = models.CharField(max_length = 50)
 
     role = models.CharField(max_length = 50)
@@ -164,6 +179,8 @@ class BoardTeam(models.Model) :
 
 class OrganizingTeam(models.Model) :
     image = models.ImageField(upload_to = 'images/organizing/')
+
+    image_alt_txt = models.CharField(max_length=100, blank=True)
 
     name = models.CharField(max_length = 50)
 
@@ -191,6 +208,8 @@ class OurChildrensSection(models.Model) :
 class OurChildrens(models.Model) :
     image = models.ImageField(upload_to = 'images/our_childrens/')
 
+    image_alt_txt = models.CharField(max_length=100, blank=True)
+
     name = models.CharField(max_length = 50)
 
     description = models.CharField(max_length = 5000)
@@ -207,7 +226,7 @@ class OurChildrens(models.Model) :
 class BlogSection(models.Model) :
     heading = models.CharField(max_length = 50)
     description = models.TextField(max_length = 5000)
-	
+
     class Meta:
         verbose_name_plural = 'BlogSection'
 
@@ -216,12 +235,19 @@ class BlogSection(models.Model) :
 
 
 class Blogs(models.Model) :
-    image = models.ImageField(upload_to = 'images/blogs/')	
-    heading = models.CharField(max_length = 100,default='Blog Heading goes here')
+    image = models.ImageField(upload_to = 'images/blogs/')
+    image_alt_txt = models.CharField(max_length=100, blank=True)
+    heading = models.CharField(max_length = 100,default='Blog Heading goes here ')
     summary = models.TextField(max_length = 150,default='Blog Summary goes here')
     content = models.TextField(max_length = 5000,default='Blog Content goes here')
     author = models.CharField(max_length = 50)
     pub_date = date.today()
+    slug = models.SlugField(default='', blank = True, unique = True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.heading, allow_unicode = True)
+
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Blogs'

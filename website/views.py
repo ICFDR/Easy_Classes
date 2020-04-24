@@ -22,8 +22,9 @@ def index(request,moveToBlogs=None):
     }
     return render(request, 'index.html', data)
 
-def blog_view(request,id=None):
-    blog = Blogs.objects.filter(id = id)
+def blog_view(request,slug=None):
+    blog = Blogs.objects.filter(slug = slug)
+
     if blog:
         data = {'blog':blog[0]}
 
@@ -37,14 +38,14 @@ def bloglist(request):
         'Blogs':Blogs.objects.all().order_by('-id')
     }
     return render(request, 'bloglist.html', data)
-	
+
 def gallery(request):
     data = {
         'Gallery':Gallery.objects.all()
     }
     return render(request, 'gallery.html', data)
-	
-	
+
+
 def about(request):
     data = {
         'AboutSWLP':AboutSWLP.objects.all(),
