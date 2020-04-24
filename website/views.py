@@ -32,9 +32,14 @@ def index(request):
     return render(request, 'index.html', data)
 
 
-def blog_view(request,id):
+def blog_view(request,id=None):
+    blog = Blogs.objects.filter(id = id)
 
-    data = {'blog':Blogs.objects.filter(id = id)[0]}
-    print(data['blog'])
+    blogs = Blogs.objects.all().order_by('-id')
 
-    return render(request, 'blog.html', data)
+    if blog:
+        data = {'blog':blog[0]}
+
+        return render(request, 'blog.html', data)
+
+    return render(request, 'allBlogs.html',{'blogs':blogs})
