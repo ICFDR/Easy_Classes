@@ -42,9 +42,9 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="{% url 'home' %}#gallery" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="{% url 'home' %}#children" class="nav-link">Children</a></li>
-          <li class="nav-item"><a href="{% url 'home' %}#blogs" class="nav-link">Blogs</a></li>
+          <li class="nav-item"><a href="{% url 'bloglist' %}" class="nav-link">Blogs</a></li>
           <li class="nav-item"><a href="#" class="nav-link">is</a></li>
           <li class="nav-item"><a href="#" class="nav-link">not</a></li>
           <li class="nav-item"><a href="#" class="nav-link">ready</a></li>
@@ -153,8 +153,6 @@
   <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
   <script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
   <script src="{% static 'js/scrollax.min.js' %}"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{% static 'js/google-map.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
   <script src="https://kit.fontawesome.com/368b28566f.js" crossorigin="anonymous"></script>
   </body>

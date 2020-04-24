@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="masthead" style="width: 100vw;height: 100px;background: black;">
+</header>
+
+<section id="gallery" class="ftco-gallery mt-5 mb-5">
+	<div class="row justify-content-center mb-5 pb-3">
+	  <div class="col-md-7 heading-section ftco-animate text-center">
+		<h2 class="mb-4">Our Image Gallery</h2>
+	  </div>
+	</div>	
+	<div class="row justify-content-center mb-5 pb-3">
+	{% for obj in Gallery %}
+		<a href="{{ obj.image.url }}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({{ obj.image.url }});">
+			<div class="icon d-flex justify-content-center align-items-center">
+				<span class="icon-search"></span>
+			</div>
+		</a>
+	{% endfor %}
+	</div>
+</section>
+
+{% endblock %}
