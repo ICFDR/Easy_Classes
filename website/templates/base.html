@@ -18,14 +18,9 @@
 
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
 
-    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
-
     <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %}">
 
-
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 	<link rel="icon" href="/media/favicon.webp" type="image/webp">
@@ -42,13 +37,12 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
           <li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="{% url 'home' %}#children" class="nav-link">Children</a></li>
           <li class="nav-item"><a href="{% url 'bloglist' %}" class="nav-link">Blogs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">is</a></li>
+          <li class="nav-item"><a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC" class="nav-link">Donate</a></li>
           <li class="nav-item"><a href="#" class="nav-link">not</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">ready</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">yet</a></li>
         </ul>
       </div>
     </div>
@@ -64,10 +58,10 @@
               <h2 class="ftco-heading-2">About Us</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a target="_blank" href="https://twitter.com/ICFDR"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a target="_blank" href="https://www.facebook.com/ngoICFDR/"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/icfdr/"><span class="icon-instagram"></span></a></li>
-                <li class="ftco-animate"><a target="_blank" href="https://www.linkedin.com/company/icfdr/"><span class="icon-linkedin"></span></a></li>
+                <li class="ftco-animate"><a target="_blank" href="https://twitter.com/ICFDR"><span class="fab fa-twitter"></span></a></li>
+                <li class="ftco-animate"><a target="_blank" href="https://www.facebook.com/ngoICFDR/"><span class="fab fa-facebook"></span></a></li>
+                <li class="ftco-animate"><a target="_blank" href="https://www.instagram.com/icfdr/"><span class="fab fa-instagram"></span></a></li>
+                <li class="ftco-animate"><a target="_blank" href="https://www.linkedin.com/company/icfdr/"><span class="fab fa-linkedin"></span></a></li>
               </ul>
             </div>
           </div>
@@ -102,23 +96,20 @@
              <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Site Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Home</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Donate</a></li>
-                <li><a href="#" class="py-2 d-block">Causes</a></li>
-                <li><a href="#" class="py-2 d-block">Event</a></li>
-                <li><a href="#" class="py-2 d-block">Blog</a></li>
+                <li><a href="{% url 'home' %}" class="py-2 d-block">Home</a></li>
+                <li><a href="{% url 'about' %}" class="py-2 d-block">About</a></li>
+                <li><a href="{% url 'gallery' %}" class="py-2 d-block">Gallery</a></li>
+                <li><a href="{% url 'bloglist' %}" class="py-2 d-block">Blogs</a></li>
               </ul>
             </div>
           </div>
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Special</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><p><a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p></li>
+	                <li><a href="http://icfdr.org/corporate-social-responsibility/"><span class="fas fa-link mr-2"></span><span class="text">Corporate Social Responsibility</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -127,7 +118,7 @@
         <div class="row">
           <div class="col-md-12 text-center">
 
-            <p>HandCrafted with <i class="icon-heart" aria-hidden="true"></i></p>
+            <p>HandCrafted with <i class="fas fa-heart" aria-hidden="true"></i></p>
           </div>
         </div>
       </div>
