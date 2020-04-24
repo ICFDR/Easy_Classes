@@ -1,4 +1,6 @@
-<img align="centre" src='media/favicon.webp'/>
+<p align="center">
+<img src='media/favicon.webp'/>
+</p>
 
 # Eassy Classes
 ## About
