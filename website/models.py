@@ -1,5 +1,6 @@
 from django.db import models
-from datetime import date
+from datetime import date, datetime
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -225,7 +226,7 @@ class OurChildrens(models.Model) :
 class BlogSection(models.Model) :
     heading = models.CharField(max_length = 50)
     description = models.TextField(max_length = 5000)
-	
+
     class Meta:
         verbose_name_plural = 'BlogSection'
 
@@ -236,11 +237,17 @@ class BlogSection(models.Model) :
 class Blogs(models.Model) :
     image = models.ImageField(upload_to = 'images/blogs/')
     image_alt_txt = models.CharField(max_length=100, blank=True)
-    heading = models.CharField(max_length = 100,default='Blog Heading goes here')
+    heading = models.CharField(max_length = 100,default='Blog Heading goes here '+str(datetime.today()))
     summary = models.TextField(max_length = 150,default='Blog Summary goes here')
     content = models.TextField(max_length = 5000,default='Blog Content goes here')
     author = models.CharField(max_length = 50)
     pub_date = date.today()
+    slug = models.SlugField(default='', blank = True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.heading, allow_unicode = True)
+
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Blogs'

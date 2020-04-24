@@ -118,7 +118,7 @@
           <div class="col-md-7 heading-section ftco-animate text-center">
             <h2 class="mb-4">Gallery</h2>
           </div>
-        </div>	
+        </div>
     	<div class="d-md-flex">
 		{% for obj in GalleryRow1 %}
 			<a href="{{ obj.image.url }}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({{ obj.image.url }});">
@@ -141,7 +141,7 @@
 			<a href="{% url 'gallery' %}" type="button" class="btn btn-white px-3 py-2 mt-2">Checkout our huge collection of pictures</a>
 		</div>
     </section>
-	
+
     <section id="children" class="ftco-section bg-light">
     	<div class="container-fluid">
     		<div class="row justify-content-center mb-5 pb-3">
@@ -182,14 +182,14 @@
 		{% for blog in Blogs %}
           <div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
-              <a href="blogs/{{ blog.id }}" class="block-20" style="background-image: url('{{ blog.image.url }}');">
+              <a href="blogs/{{ blog.slug }}" class="block-20" style="background-image: url('{{ blog.image.url }}');">
               </a>
               <div class="text p-4 d-block">
               	<div class="meta mb-3">
                   <div>{{ blog.pub_date }}</div>
                   <div>{{ blog.author }}</div>
                 </div>
-                <h3 class="heading mt-3"><a href="blogs/{{ blog.id }}">{{ blog.heading }}</a></h3>
+                <h3 class="heading mt-3"><a href="blogs/{{ blog.slug }}">{{ blog.heading }}</a></h3>
                 <p>{{ blog.summary }}</p>
               </div>
             </div>
