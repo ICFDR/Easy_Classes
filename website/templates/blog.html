@@ -1,3 +1,21 @@
-<h1>Worked</h1>
-{{ blog.id }}<br>
-{{ blog.author }}<br>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="masthead" style="height: 100vh;min-height: 500px;background-image: url('{{ blog.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+</header>
+  <div class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 class="mt-4">{{ blog.heading }}</h1>
+        <p class="lead text-left">by {{ blog.author }}</p>
+		<hr>
+        <p class="text-left">Posted on {{ blog.pub_date }}</p>
+        <hr>
+		{{ blog.content }}
+		</div>
+	</div>
+</div>
+{% endblock %}
