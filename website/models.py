@@ -1,6 +1,5 @@
 from django.db import models
-from datetime import datetime
-
+from datetime import date
 
 # Create your models here.
 
@@ -207,10 +206,8 @@ class OurChildrens(models.Model) :
 
 class BlogSection(models.Model) :
     heading = models.CharField(max_length = 50)
-
     description = models.TextField(max_length = 5000)
-
-
+	
     class Meta:
         verbose_name_plural = 'BlogSection'
 
@@ -219,17 +216,12 @@ class BlogSection(models.Model) :
 
 
 class Blogs(models.Model) :
-    image = models.ImageField(upload_to = 'images/blogs/')
-
+    image = models.ImageField(upload_to = 'images/blogs/')	
+    heading = models.CharField(max_length = 100,default='Blog Heading goes here')
+    summary = models.TextField(max_length = 150,default='Blog Summary goes here')
+    content = models.TextField(max_length = 5000,default='Blog Content goes here')
     author = models.CharField(max_length = 50)
-
-    role = models.CharField(max_length = 50)
-
-    pub_date = datetime.today()
-
-    content = models.TextField()
-
-    section = models.ForeignKey(BlogSection, on_delete = models.CASCADE)
+    pub_date = date.today()
 
     class Meta:
         verbose_name_plural = 'Blogs'
