@@ -237,12 +237,12 @@ class BlogSection(models.Model) :
 class Blogs(models.Model) :
     image = models.ImageField(upload_to = 'images/blogs/')
     image_alt_txt = models.CharField(max_length=100, blank=True)
-    heading = models.CharField(max_length = 100,default='Blog Heading goes here '+str(datetime.today()))
+    heading = models.CharField(max_length = 100,default='Blog Heading goes here ')
     summary = models.TextField(max_length = 150,default='Blog Summary goes here')
     content = models.TextField(max_length = 5000,default='Blog Content goes here')
     author = models.CharField(max_length = 50)
     pub_date = date.today()
-    slug = models.SlugField(default='', blank = True)
+    slug = models.SlugField(default='', blank = True, unique = True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.heading, allow_unicode = True)
