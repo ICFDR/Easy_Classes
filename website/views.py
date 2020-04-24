@@ -6,7 +6,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     OurChildrensSection
                     )
 # Create your views here.
-def index(request):
+def index(request,moveToBlogs=None):
 
     data = {
         'Slider':Slider.objects.all(),
@@ -26,7 +26,7 @@ def index(request):
         'OurChildrens':OurChildrens.objects.all(),
         'BlogSection':BlogSection.objects.all(),
         'Blogs':Blogs.objects.all(),
-
+		'moveToBlogs':moveToBlogs,
     }
 
     return render(request, 'index.html', data)
@@ -42,4 +42,4 @@ def blog_view(request,id=None):
 
         return render(request, 'blog.html', data)
 
-    return render(request, 'allBlogs.html',{'blogs':blogs})
+    return index(request,'1')
