@@ -4919,14 +4919,14 @@ button.close {
     background-color: #fff; }
 
 .carousel-caption {
+  width: 45rem;
   position: absolute;
-  right: 15%;
-  left: 15%;
+  right: 5%;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #fff;
-  text-align: center; }
+  text-align: right; }
 
 .align-baseline {
   vertical-align: baseline !important; }
@@ -7302,7 +7302,7 @@ h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.4;
   color: #000;
-  font-family: "Dosis", Arial, sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-weight: 400; }
 
 .text-primary {
@@ -9181,7 +9181,7 @@ transform-style: preserve-3d;
 }
 
 .carousel-caption{
-	top: 60%;
+	top: 45%;
 transform: translateY(-40%);
 }
 
