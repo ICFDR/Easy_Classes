@@ -68,7 +68,7 @@ class AboutSWLP(models.Model) :
         return self.heading
 
 class AboutSWLPIcons(models.Model) :
-    icon = models.ImageField(upload_to = 'about_swlp/icons/')
+    icon = models.CharField(max_length=50)
     image_alt_txt = models.CharField(max_length=100, blank=True)
     icon_text = models.CharField(max_length = 50)
     section = models.ForeignKey(AboutSWLP , on_delete = models.CASCADE)

@@ -49,7 +49,8 @@ def gallery(request):
 def about(request):
     data = {
         'AboutSWLP':AboutSWLP.objects.all(),
-        'AboutSWLPIcons':AboutSWLPIcons.objects.all(),
+        'AboutSWLPIconsRow1':AboutSWLPIcons.objects.all()[:3],
+        'AboutSWLPIconsRow2':AboutSWLPIcons.objects.all()[3:],
         'LeaderSaysSection':LeaderSaysSection.objects.all(),
         'LeaderSays':LeaderSays.objects.all(),
         'BoardTeam':BoardTeam.objects.all(),
