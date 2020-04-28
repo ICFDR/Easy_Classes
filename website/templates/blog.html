@@ -12,12 +12,12 @@
   <div class="container mb-5" style="margin-top:-200px;">
     <div class="row">
       <div class="col-lg-8">
-        <h1 class="mt-4" style="color:#fff;">{{ blog.heading }}</h1>
+        <h1 class="mt-4" style="color:#fff;">{{ blog.heading|linebreaks }}</h1>
         <p class="lead text-left">by {{ blog.author }}</p>
 		<hr>
         <p class="text-left">Posted on {{ blog.pub_date }}</p>
 			<div class="mt-5" style="font-size:larger;">
-				{{ blog.content }}
+				{{ blog.content|linebreaks }}
 			</div>
 		</div>
 	</div>
