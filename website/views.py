@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
-                    OurChildrens, OrganizingTeam,BlogSection, Blogs,
+                    OurChildrens, OrganizingTeam,BlogSection, Blogs, BlogCitations,
                     OurChildrensSection
                     )
 
@@ -24,9 +24,10 @@ def index(request,moveToBlogs=None):
 
 def blog_view(request,slug=None):
     blog = Blogs.objects.filter(slug = slug)
+    blogCitations = BlogCitations.objects.filter(blog = blog[0])
 
     if blog:
-        data = {'blog':blog[0]}
+        data = {'blog':blog[0],'cites':blogCitations}
 
         return render(request, 'blog.html', data)
 

@@ -9195,3 +9195,21 @@ color: white;
 	top: 85%;
 transform: translateY(-15%);
 }
+
+.blog-head{
+	background:rgba(0,0,0,0.8);
+	padding:10px 20px;
+	border-radius:10px;	
+}
+
+.blog-content>p{
+	font-size:larger;
+	text-align: left;
+}
+
+.cites>a{
+	display: block;
+	text-decoration: none;
+	margin-top: 0.3rem;
+	font-size: small;
+}

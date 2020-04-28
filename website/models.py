@@ -212,9 +212,12 @@ class Blogs(models.Model):
         verbose_name_plural = 'Blogs'
 
     def __str__(self):
-        return self.author
+        return self.heading
 
 
 class BlogCitations(models.Model):
     url = models.URLField()
     blog = models.ForeignKey(to=Blogs, on_delete=models.CASCADE)
+	
+    def __str__(self):
+        return self.url
