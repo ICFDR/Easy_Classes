@@ -36,7 +36,7 @@
 					</div>
 				</div>
 				<div class="col-md-5">
-					<img src="{{ AboutSWLP.0.image.url }}" class="img-responsive img-thumbnail">
+					<img src="{{ AboutSWLP.0.image.url }}" class="img-responsive img-thumbnail" alt="{{ AboutSWLP.0.image_alt_text }}">
 				</div>
 				<div class="row">
 					<p class="text-left">{{ AboutSWLP.0.image_description }}</p>
@@ -58,10 +58,87 @@
 					{% for member in LeaderSays %}
 	    				<div class="item">
 	    					<div class="cause-entry">
-		    					<a class="img" style="background-image: url({{ member.image.url }});"></a>
+		    					<a class="img" style="background-image: url({{ member.image.url }});background-size:cover;"></a>
 		    					<div class="text p-3 p-md-4">
 		    						<h3>{{ member.name }}</h3>
 		    						<p>{{ member.about }}</p>
+		    					</div>
+		    				</div>
+	    				</div>
+					{% endfor %}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+	
+	<section id="board" class="ftco-section bg-light">
+    	<div class="container-fluid">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-8 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Board Members</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="carousel-cause owl-carousel">
+					{% for member in BoardTeam %}
+	    				<div class="item">
+	    					<div data-toggle="modal" data-target="#Modal-{{ member.id }}" class="cause-entry" style="border-radius:360px">
+		    					<a class="img" style="height:450px;background-image: url({{ member.image.url }});background-size:cover;"></a>
+		    					<div class="text p-3 p-md-4" style="text-align:center;">
+		    						<h3>{{ member.name }}</h3>
+		    						<h6>{{ member.role }}</h6>
+		    					</div>
+		    				</div>
+	    				</div>
+					{% endfor %}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+		{% for member in BoardTeam %}
+		<div id="Modal-{{ member.id }}" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h4 class="modal-title">Board Member</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			  <div class="modal-body">
+				<div class="img-responsive img-thumbnail" style="background-image: url({{ member.image.url }});background-size:cover;width:450px;height:450px;">
+				</div>
+				<h4>{{ member.name }}</h4>
+				<h6>{{ member.role }}</h6>
+				{{ member.description }}
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+		{% endfor %}
+    </section>
+	
+	<section id="board" class="ftco-section bg-light">
+    	<div class="container-fluid">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-8 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Organizing Team</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="carousel-cause owl-carousel">
+					{% for member in OrganizingTeam %}
+	    				<div class="item">
+	    					<div class="cause-entry">
+		    					<a class="img" style="background-image: url({{ member.image.url }});background-size:cover;height:600px;"></a>
+		    					<div class="text p-3 p-md-4">
+		    						<h3>{{ member.name }}</h3>
+		    						<h6>{{ member.role }}</h6>
 		    					</div>
 		    				</div>
 	    				</div>
