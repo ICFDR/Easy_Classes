@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
-                    OurChildrensSection
+                    OurChildrensSection, BlogCitations,
                     )
 
 
@@ -39,4 +39,10 @@ admin.site.register(OurChildrens)
 
 admin.site.register(BlogSection)
 
-admin.site.register(Blogs)
+class InlineCitations(admin.StackedInline):
+    model = BlogCitations
+    extra = 1
+
+@admin.register(Blogs)
+class BlogsAdmin(admin.ModelAdmin):
+   inlines = [InlineCitations,]
