@@ -17,6 +17,7 @@
   });
 
 
+
 	var fullHeight = function() {
 
 		$('.js-fullheight').css('height', $(window).height());
@@ -60,7 +61,7 @@
 					stagePadding: 50
 				},
 				1000:{
-					items: 3,
+					items: 5,
 					stagePadding: 100
 				}
 			}
@@ -68,6 +69,35 @@
 
 	};
 	carousel();
+	
+	var boardcarousel = function() {
+		$('.carousel-board').owlCarousel({
+			autoplay: true,
+			center: true,
+			loop: true,
+			items:1,
+			margin: 30,
+			stagePadding:0,
+			nav: true,
+			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			responsive:{
+				0:{
+					items: 1,
+					stagePadding: 0
+				},
+				600:{
+					items: 2,
+					stagePadding: 50
+				},
+				1000:{
+					items: 4,
+					stagePadding: 100
+				}
+			}
+		});
+
+	};
+	boardcarousel();
 
 	$('nav .dropdown').hover(function(){
 		var $this = $(this);
