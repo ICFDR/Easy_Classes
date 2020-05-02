@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs, BlogCitations,
-                    OurChildrensSection, AboutUs
+                    OurChildrensSection, AboutUs,ApplicationForm,Programs
                     )
 
 def index(request,moveToBlogs=None):
@@ -59,3 +59,39 @@ def about(request):
         'OrganizingTeam':OrganizingTeam.objects.all(),
     }
     return render(request, 'about.html', data)
+
+def application_form(request):
+    data = {
+        'programs' : Programs.objects.all(),
+    }
+
+    if request.method == "POST":
+        first_name = request.POST.get('first_name')
+        middle_name = request.POST.get('middle_name')
+        last_name = request.POST.get('last_name')
+        phone_no = request.POST.get('phone_no')
+        date_of_birth = request.POST.get('date_of_birth')
+        city_or_town = request.POST.get('city_or_town')
+        state_or_region = request.POST.get('state_or_region')
+        are_you_currently_working = request.POST.get('are_you_currently_working')
+        have_you_been_a_social_worker_before = request.POST.get('have_you_been_a_social_worker_before')
+        academic_qualifications = request.POST.get('academic_qualifications')
+        language_known = request.POST.get('language_known')
+        permanent_address = request.POST.get('permanent_address')
+        email_address = request.POST.get('email_address')
+        when_can_you_start = request.POST.get('when_can_you_start')
+        reference = request.POST.get('reference')
+        additional_info = request.POST.get('additional_info')
+
+        ApplicationForm(first_name=first_name, middle_name=middle_name, last_name = last_name, phone_no=phone_no,
+                        date_of_birth=date_of_birth, city_or_town=city_or_town,state_or_region=state_or_region,
+                        are_you_currently_working=are_you_currently_working, have_you_been_a_social_worker_before=have_you_been_a_social_worker_before,
+                        academic_qualifications=academic_qualifications, language_known=language_known,
+                        permanent_address=permanent_address, email_address=email_address,
+                        when_can_you_start=when_can_you_start,reference=reference,
+                        additional_info=additional_info).save()
+
+        return render(request, '#')
+
+    else:
+        return render(request, '#', data)
