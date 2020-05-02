@@ -61,7 +61,7 @@
 					stagePadding: 50
 				},
 				1000:{
-					items: 5,
+					items: 3,
 					stagePadding: 100
 				}
 			}
@@ -70,7 +70,36 @@
 	};
 	carousel();
 	
-	var boardcarousel = function() {
+	var membersCarousel = function() {
+		$('.carousel-members').owlCarousel({
+			autoplay: true,
+			center: true,
+			loop: true,
+			items:1,
+			margin: 30,
+			stagePadding:0,
+			nav: true,
+			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			responsive:{
+				0:{
+					items: 1,
+					stagePadding: 0
+				},
+				600:{
+					items: 2,
+					stagePadding: 50
+				},
+				1000:{
+					items: 5,
+					stagePadding: 100
+				}
+			}
+		});
+
+	};
+	membersCarousel();
+	
+	var boardCarousel = function() {
 		$('.carousel-board').owlCarousel({
 			autoplay: true,
 			center: true,
@@ -97,7 +126,7 @@
 		});
 
 	};
-	boardcarousel();
+	boardCarousel();
 
 	$('nav .dropdown').hover(function(){
 		var $this = $(this);

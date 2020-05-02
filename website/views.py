@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs, BlogCitations,
-                    OurChildrensSection
+                    OurChildrensSection, AboutUs
                     )
 
 def index(request,moveToBlogs=None):
@@ -49,6 +49,7 @@ def gallery(request):
 
 def about(request):
     data = {
+        'About':AboutUs.objects.all(),
         'AboutSWLP':AboutSWLP.objects.all(),
         'AboutSWLPIconsRow1':AboutSWLPIcons.objects.all()[:3],
         'AboutSWLPIconsRow2':AboutSWLPIcons.objects.all()[3:],

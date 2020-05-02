@@ -7778,7 +7778,7 @@ h1, h2, h3, h4, h5,
     color: #000; }
 
 .ftco-section-3 {
-  padding: 8em 0;
+  padding: 2em 0;
   position: relative; }
   .ftco-section-3 .overlay {
     position: absolute;
@@ -7855,7 +7855,8 @@ h1, h2, h3, h4, h5,
       width: 100%; } }
   .gallery.img {
     display: block;
-    height: 300px; }
+    height: 300px; 
+	border: 10px solid white;}
   .gallery .icon {
     width: 50px;
     height: 50px;
@@ -9204,7 +9205,7 @@ transform: translateY(-15%);
 
 .blog-content>p{
 	font-size:larger;
-	text-align: left;
+	text-align:justify;
 }
 
 .cites>a{
@@ -9216,4 +9217,8 @@ transform: translateY(-15%);
 
 .item{
 	cursor: pointer;
+}
+
+.about-us>p{
+	text-align:justify;
 }

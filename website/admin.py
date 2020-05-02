@@ -3,11 +3,11 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
-                    OurChildrensSection, BlogCitations,
+                    OurChildrensSection, BlogCitations, AboutUs
                     )
 
 
-# Register your models here.
+admin.site.register(AboutUs)
 
 admin.site.register(Slider)
 

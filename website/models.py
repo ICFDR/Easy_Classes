@@ -2,6 +2,15 @@ from django.db import models
 from datetime import date
 from django.utils.text import slugify
 
+class AboutUs(models.Model):
+    heading = models.CharField(max_length=100)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'About Us'
+
+    def __str__(self):
+        return self.heading
 
 class Slider(models.Model):
     heading = models.CharField(max_length=100)
@@ -56,6 +65,7 @@ class OurCauses(models.Model):
     heading = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(upload_to='images/our_causes')
+    image_alt_txt = models.CharField(max_length=100, blank=True)
 
     class Meta:
         verbose_name_plural = 'Causes'
@@ -114,6 +124,7 @@ class LeaderSaysSection(models.Model):
 
 class LeaderSays(models.Model):
     image = models.ImageField(upload_to='images/leaders/')
+    image_alt_txt = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=50)
     about = models.TextField()
     section = models.ForeignKey(LeaderSaysSection, on_delete=models.CASCADE)
@@ -127,6 +138,7 @@ class LeaderSays(models.Model):
 
 class BoardTeam(models.Model):
     image = models.ImageField(upload_to='images/board/')
+    image_alt_txt = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=50)
     role = models.CharField(max_length=50)
     description = models.TextField()
@@ -163,6 +175,7 @@ class OurChildrensSection(models.Model):
 
 class OurChildrens(models.Model):
     image = models.ImageField(upload_to='images/our_childrens/')
+    image_alt_txt = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=5000)
     section = models.ForeignKey(OurChildrensSection, on_delete=models.CASCADE)
