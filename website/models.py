@@ -223,3 +223,8 @@ class BlogCitations(models.Model):
 	
     def __str__(self):
         return self.url
+
+    class Meta:
+        verbose_name_plural = 'BlogCitations'
+
+
