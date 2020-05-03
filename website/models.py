@@ -154,6 +154,7 @@ class OrganizingTeam(models.Model):
     image = models.ImageField(upload_to='images/organizing/')
     name = models.CharField(max_length=50)
     role = models.CharField(max_length=50)
+    url = models.URLField(blank=True)
 
     class Meta:
         verbose_name_plural = 'Organizing Team'

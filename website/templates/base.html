@@ -35,12 +35,12 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
           <li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="{% url 'home' %}#children" class="nav-link">Children</a></li>
           <li class="nav-item"><a href="{% url 'bloglist' %}" class="nav-link">Blogs</a></li>
-          <li class="nav-item"><a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC" style="background:#21bd6e;color:black;padding:10px 15px;font-size:larger;font-weight:800;border-radius:5px;" class="nav-link">Donate</a></li>
+          <li class="nav-item"><a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC" class="donate-btn-nav nav-link">Donate</a></li>
         </ul>
       </div>
     </div>
@@ -152,5 +152,6 @@
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/isotope.pkgd.js' %}"></script>
   <script src="https://kit.fontawesome.com/368b28566f.js" crossorigin="anonymous"></script>
+  <script src="{% static 'js/jquery.hoverplay.min.js' %}"></script>
   </body>
 </html>

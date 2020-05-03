@@ -123,7 +123,7 @@
 		{% for obj in GalleryRow1 %}
 			<a href="{{ obj.image.url }}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({{ obj.image.url }});">
 	    		<div class="icon d-flex justify-content-center align-items-center">
-	    			<span class="fas fa-search"></span>
+	    			<span class="fas fa-search-plus"></span>
 	    		</div>
 	    	</a>
 		{% endfor %}
@@ -132,13 +132,13 @@
 		{% for obj in GalleryRow2 %}
 			<a href="{{ obj.image.url }}" class="gallery image-popup d-flex justify-content-center align-items-center img ftco-animate" style="background-image: url({{ obj.image.url }});">
 	    		<div class="icon d-flex justify-content-center align-items-center">
-	    			<span class="fas fa-search"></span>
+	    			<span class="fas fa-search-plus"></span>
 	    		</div>
 	    	</a>
 		{% endfor %}
     	</div>
 		<div class="row justify-content-center pb-3 mt-5 mb-5">
-			<a href="{% url 'gallery' %}" type="button" class="btn btn-white px-3 py-2 mt-2">Checkout our huge collection of pictures</a>
+			<a href="{% url 'gallery' %}" type="button" class="btn btn-white px-3 py-2 mt-2">Checkout our collection of pictures</a>
 		</div>
     </section>
 
@@ -236,7 +236,7 @@
               <a href="#" class="block-20" style="background-image: url({{ cause.image.url }});background-size: cover; width:500px;">
               </a>
               <div class="text p-4 d-block">
-                <h3 class="heading mb-4"><a href="#">{{ cause.heading }}</a></h3>
+                <h3 class="heading mb-4">{{ cause.heading }}</h3>
 				<p class="text-justify">{{ cause.description|slice:":150" }}...</p>
               </div>
             </div>
@@ -268,8 +268,8 @@
 		{% endfor %}
     </section>
 
-	<section class="ftco-section-3 img" style="padding:0;height:139vh;">
-	<video style="width:100vw" autoplay loop muted controls>
+	<section class="ftco-section-3 img" style="padding:0;text-align:center;">
+	<video style="height:90vh" muted controls data-play="hover">
 	  <source src="{% static 'images/Easy Classes Overview.webm' %}" type="video/mp4">
 	Your browser does not support the video tag.
 	</video>

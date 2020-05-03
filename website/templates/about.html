@@ -31,7 +31,7 @@
 					<div class="row">
 						<p class="text-justify">{{ AboutSWLP.0.description }}</p>
 					</div>
-					<div class="row">
+					<div class="row about-swlp">
 						<div class="col-md-6">
 							<ul style="list-style-type:none;">
 							{% for swlp in AboutSWLPIconsRow1 %}
@@ -74,6 +74,7 @@
 		    					<a class="img" style="background-image: url({{ member.image.url }});background-size: cover;"></a>
 		    					<div class="text p-3 p-md-4">
 		    						<h5>{{ member.name }}</h5>
+									{{ member.about|slice:":100" }}...
 		    					</div>
 		    				</div>
 	    				</div>
@@ -109,26 +110,51 @@
     	<div class="container-fluid">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-8 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Board Team</h2>
+            <h2 class="mb-4">Organizing Team</h2>
           </div>
         </div>
     		<div class="row">
     			<div class="col-md-12 ftco-animate">
-    				<div class="carousel-board owl-carousel">
-					{% for member in BoardTeam %}
+    				<div class="carousel-members owl-carousel">
+					{% for member in OrganizingTeam %}
 	    				<div class="item">
-	    					<div data-toggle="modal" data-target="#Modal-Board-{{ member.id }}" class="cause-entry" style="max-width:250px;border-radius:360px;">
-		    					<a class="img" style="background-image: url({{ member.image.url }});background-size: cover;max-height: 250px"></a>
+	    					<div class="cause-entry">
+		    					<a {% if member.url %} href="{{ member.url }}" {% endif %} target="_blank" class="img" style="background-image: url({{ member.image.url }});background-size: cover; height:200px;"></a>
+		    					<div class="text p-3 p-md-4">
+		    						<h5><a>{{ member.name }}</a></h5>
+		    						<h6>{{ member.role }}</h6>
+		    					</div>
 		    				</div>
-							<div class="text p-2 p-md-2" style="text-align:center;width: 100%;">
-								<h5 class="mb-0">{{ member.name }}</h5>
-								<small>{{ member.role }}</small>
-							</div>
 	    				</div>
 					{% endfor %}
     				</div>
     			</div>
     		</div>
+    	</div>
+    </section>
+	
+	<section id="board" class="ftco-section bg-light">
+    	<div class="container-fluid">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-8 heading-section ftco-animate text-center">
+					<h2 class="mb-4">Board Team</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					{% for member in BoardTeam %}
+					<div class="col-md-3 ftco-animate">
+							<div data-toggle="modal" data-target="#Modal-Board-{{ member.id }}" style="text-align:center;" class="item p-3">
+								<img src="{{ member.image.url }}" style="height: 200px;width:200px;border-radius:360px;"></img>
+								<div class="text p-2 p-md-2" style="text-align:center;width: 100%;">
+									<h5 class="mb-0">{{ member.name }}</h5>
+									<small>{{ member.role }}</small>
+								</div>
+							</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
     	</div>
 		{% for member in BoardTeam %}
 		<div id="Modal-Board-{{ member.id }}" class="modal fade" role="dialog">
@@ -152,32 +178,5 @@
 		  </div>
 		</div>
 		{% endfor %}
-    </section>
-	
-	<section id="board" class="ftco-section bg-light">
-    	<div class="container-fluid">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-8 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Organizing Team</h2>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-12 ftco-animate">
-    				<div class="carousel-members owl-carousel">
-					{% for member in OrganizingTeam %}
-	    				<div class="item">
-	    					<div class="cause-entry">
-		    					<a class="img" style="background-image: url({{ member.image.url }});background-size: cover; height:200px;"></a>
-		    					<div class="text p-3 p-md-4">
-		    						<h5>{{ member.name }}</h5>
-		    						<h6>{{ member.role }}</h6>
-		    					</div>
-		    				</div>
-	    				</div>
-					{% endfor %}
-    				</div>
-    			</div>
-    		</div>
-    	</div>
     </section>
 {% endblock %}
