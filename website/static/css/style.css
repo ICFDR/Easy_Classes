@@ -7836,29 +7836,23 @@ h1, h2, h3, h4, h5,
 
 .gallery {
   width: 25%;
-  position: relative; }
-  .gallery:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    background: rgba(0, 0, 0, 0.5);
-    -moz-transition: all 0.3s ease;
+  position: relative; 
+  overflow:hidden; }
+  @media (max-width: 767.98px) {
+    .gallery {
+      width: 100%; } }
+  .gallery .img {
+    display: block;
+    height: 300px; 
+	border: 5px solid white;
+	width:-webkit-fill-available;
+	-moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease; }
-  @media (max-width: 767.98px) {
-    .gallery {
-      width: 100%; } }
-  .gallery.img {
-    display: block;
-    height: 300px; 
-	border: 5px solid white;
-	transition-duration: 1s;}
   .gallery .icon {
+	  position: absolute;
     width: 50px;
     height: 50px;
     background: rgba(255, 255, 255, 0.8);
@@ -7879,7 +7873,7 @@ h1, h2, h3, h4, h5,
   .gallery:hover:after {
     opacity: 0; }
 .gallery:hover .img{
-   transform: scale(1.2); }
+   transform: scale(1.2) rotate(2deg); }
 
 .staff {
   padding: 25px;
@@ -8447,7 +8441,8 @@ textarea.form-control {
 .heading-section h2 {
   font-size: 34px;
   font-weight: 400;
-  text-transform: uppercase; }
+  text-transform: uppercase; 
+  color: #21bd6e;}
   @media (max-width: 767.98px) {
     .heading-section h2 {
       font-size: 28px; } }
@@ -8457,7 +8452,7 @@ textarea.form-control {
 
 .heading-section.heading-section-white h2 {
   font-size: 30px;
-  color: #fff; }
+  color: #21bd6e; }
 
 .heading-section.heading-section-white p {
   color: rgba(255, 255, 255, 0.9); }
