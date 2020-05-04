@@ -241,7 +241,7 @@ class Programs(models.Model):
         return self.why_be_a_fellow_content
 
 
-class ApplicationForm(models.Model):
+class ApplicationForms(models.Model):
 
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
@@ -269,6 +269,9 @@ class ApplicationForm(models.Model):
 
     def __str__(self):
         return self.first_name
+
+    class Meta:
+        verbose_name_plural = 'ApplicationForms'
 
 
 

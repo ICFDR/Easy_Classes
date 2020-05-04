@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs, BlogCitations,
-                    OurChildrensSection, AboutUs,ApplicationForm,Programs
+                    OurChildrensSection, AboutUs,ApplicationForms,Programs
                     )
 
 def index(request,moveToBlogs=None):
@@ -83,7 +83,7 @@ def application_form(request):
         reference = request.POST.get('reference')
         additional_info = request.POST.get('additional_info')
 
-        ApplicationForm(first_name=first_name, middle_name=middle_name, last_name = last_name, phone_no=phone_no,
+        ApplicationForms(first_name=first_name, middle_name=middle_name, last_name = last_name, phone_no=phone_no,
                         date_of_birth=date_of_birth, city_or_town=city_or_town,state_or_region=state_or_region,
                         are_you_currently_working=are_you_currently_working, have_you_been_a_social_worker_before=have_you_been_a_social_worker_before,
                         academic_qualifications=academic_qualifications, language_known=language_known,
