@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'admin_panel',
+    'djrichtextfield',
 
 ]
 
@@ -126,3 +127,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+DJRICHTEXTFIELD_CONFIG = {
+    'js': ['//tinymce.cachefly.net/4.1/tinymce.min.js'],
+    'init_template': 'djrichtextfield/init/tinymce.js',
+    'settings': {
+        'menubar': False,
+        'plugins': 'link image table code',
+        'toolbar': 'formatselect | bold italic | removeformat |'
+                   ' link unlink image table | code',
+        'block_formats': 'Paragraph=p;Header 1=h1;Header 2=h2;Header 3=h3',
+        'width': 700
+    }
+}
