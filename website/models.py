@@ -231,10 +231,9 @@ class BlogSection(models.Model):
 class Blogs(models.Model):
     image = models.ImageField(upload_to='images/blogs/')
     heading = models.CharField(max_length=100)
-    summary = models.TextField(max_length=150)
     content = models.TextField(max_length=5000)
     pub_date = date.today()
-    slug = models.SlugField(default='', blank=True, unique=True)
+    slug = models.SlugField(max_length=100, default='', blank=True, unique=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.heading, allow_unicode=True)
@@ -257,57 +256,22 @@ class BlogCitations(models.Model):
     class Meta:
         verbose_name_plural = 'BlogCitations'
 
-
-
-
-
-# class ApplicationForms(models.Model):
-#
-#     first_name = models.CharField(max_length=50)
-#     middle_name = models.CharField(max_length=50)
-#     last_name = models.CharField(max_length=50)
-#     phone_no = models.CharField(max_length=12)
-#     date_of_birth = models.CharField(max_length=20)
-#     city_or_town = models.CharField(max_length=50)
-#     state_or_region = models.CharField(max_length=50)
-#     profession = models.CharField(max_length=50)
-#     are_you_currently_working = models.CharField(max_length=20)
-#     have_you_been_a_social_worker_before = models.CharField(max_length=100)
-#     academic_qualifications = models.CharField(max_length=50)
-#     language_known = models.CharField(max_length=100)
-#     permanent_address = models.TextField(max_length=100)
-#     email_address = models.EmailField()
-#     # define_leadership = models.TextField()
-#     # why_do_want_to_be_a_fellow = models.TextField()
-#     # why_do_you_think_education_is_important = models.TextField()
-#     # change_tyhe = models.TextField()
-#     # why_do_want_to_be_a_fellow = models.TextField()
-#     when_can_you_start = models.CharField(max_length=30)
-#     reference = models.CharField(max_length=50)
-#     additional_info = models.TextField(blank=True)
-#
-#
-#     def __str__(self):
-#         return self.first_name
-#
-#     class Meta:
-#         verbose_name_plural = 'ApplicationForms'
-
 class Programs(models.Model):
-
+    image = models.ImageField(upload_to='images/programs/')
+    heading = models.CharField(max_length=100)
     content = RichTextField()
+    slug = models.SlugField(max_length=100, default='', blank=True, unique=True)
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.heading, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Programs'
+
+    def __str__(self):
+        return self.heading
 
 class Donate(models.Model):
-
     image = models.ImageField(upload_to='images/donate/')
     content = RichTextField()
-
-
-
-
-
-
-
-
-

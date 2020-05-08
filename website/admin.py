@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
-                    OurChildrensSection, BlogCitations, AboutUs,Programs,Donate
+                    OurChildrensSection, BlogCitations, AboutUs, Programs,Donate
                     )
 
 

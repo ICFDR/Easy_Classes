@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="masthead" style="height: 100vh;min-height: 500px;background-image: url('{{ program.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+<div class="scroll" style="position: absolute;right: 2rem;bottom: 0.5rem;">
+	Scroll Down to read More
+</div>
+</header>
+  <div class="container mb-5" style="margin-top:-200px;">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog-head">
+			<h1 class="mt-4" style="color:#fff;">{{ program.heading }}</h1>
+		</div>
+		<div class="mt-5 blog-content" style="padding:32px;">
+			{{ program.content| safe }}
+		</div>
+	  </div>
+	</div>
+</div>
+{% endblock %}

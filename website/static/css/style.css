@@ -9242,3 +9242,8 @@ transform: translateY(-15%);
 	color: #21bd6e  !important;
 	border: 1px solid black;
 }
+
+.blog-content *{
+	white-space: unset !important;
+	text-align: justify !important;
+}

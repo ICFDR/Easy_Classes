@@ -99,3 +99,20 @@ def about(request):
 
 def tryy(request):
     return render(request,'try.html', {'a':Programs.objects.all()})
+    
+def program_view(request,slug=None):
+    program = Programs.objects.filter(slug = slug)
+
+    if program:
+        data = {'program':program[0]}
+
+        return render(request, 'program.html', data)
+
+    return programlist(request)
+
+def programlist(request):
+    data = {
+        'Programs':Programs.objects.all().order_by('-id')
+    }
+    return render(request, 'programlist.html', data)
+    
