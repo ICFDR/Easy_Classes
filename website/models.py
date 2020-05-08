@@ -298,6 +298,10 @@ class Programs(models.Model):
     content = RichTextField()
 
 
+class Donate(models.Model):
+
+    image = models.ImageField(upload_to='images/donate/')
+    content = RichTextField()
 
 
 
