@@ -26,7 +26,6 @@ class Slider(models.Model):
     def __str__(self):
         return self.heading
 
-
 class Vision(models.Model):
     heading = models.CharField(max_length=100)
     less = models.TextField(default='')
@@ -37,7 +36,6 @@ class Vision(models.Model):
 
     def __str__(self):
         return self.heading
-
 
 class VisionIcons(models.Model):
     icon = models.CharField(max_length=30)
@@ -51,7 +49,6 @@ class VisionIcons(models.Model):
     def __str__(self):
         return self.icon_name
 
-
 class Gallery(models.Model):
     image = models.ImageField(upload_to='images/gallery')
     image_alt_txt = models.CharField(max_length=100, blank=True)
@@ -63,7 +60,6 @@ class Gallery(models.Model):
     def __str__(self):
         return self.tag
 
-
 class OurCauses(models.Model):
     heading = models.CharField(max_length=100)
     description = models.TextField()
@@ -72,7 +68,6 @@ class OurCauses(models.Model):
 
     class Meta:
         verbose_name_plural = 'Causes'
-
 
 class AboutSWLP(models.Model):
     heading = models.CharField(max_length=100)
@@ -89,7 +84,6 @@ class AboutSWLP(models.Model):
     def __str__(self):
         return self.heading
 
-
 class AboutSWLPIcons(models.Model):
     icon = models.CharField(max_length=50)
     icon_text = models.CharField(max_length=50)
@@ -100,7 +94,6 @@ class AboutSWLPIcons(models.Model):
 
     def __str__(self):
         return self.icon_text
-
 
 class JoinUs(models.Model):
     heading = models.CharField(max_length=100)
@@ -113,7 +106,6 @@ class JoinUs(models.Model):
     def __str__(self):
         return self.heading
 
-
 class LeaderSaysSection(models.Model):
     heading = models.CharField(max_length=100)
     description = models.CharField(max_length=5000)
@@ -123,7 +115,6 @@ class LeaderSaysSection(models.Model):
 
     def __str__(self):
         return self.heading
-
 
 class LeaderSays(models.Model):
     image = models.ImageField(upload_to='images/leaders/')
@@ -138,7 +129,6 @@ class LeaderSays(models.Model):
     def __str__(self):
         return self.name
 
-
 class BoardTeam(models.Model):
     image = models.ImageField(upload_to='images/board/')
     image_alt_txt = models.CharField(max_length=100, blank=True)
@@ -152,7 +142,6 @@ class BoardTeam(models.Model):
     def __str__(self):
         return self.name
 
-
 class OrganizingTeam(models.Model):
     image = models.ImageField(upload_to='images/organizing/')
     name = models.CharField(max_length=50)
@@ -165,14 +154,12 @@ class OrganizingTeam(models.Model):
     def __str__(self):
         return self.name
 
-
 @receiver(models.signals.post_delete,sender = OrganizingTeam )
 def auto_delete_file_on_delete(sender, instance, **kwargs):
 
     if instance.image:
         if os.path.isfile(instance.image.path):
             os.remove(instance.image.path)
-
 
 @receiver(models.signals.pre_save,sender = OrganizingTeam)
 def auto_delete_file_on_change(sender, instance, **kwargs):
@@ -191,7 +178,6 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
         if os.path.isfile(old_file.path):
             os.remove(old_file.path)
 
-
 class OurChildrensSection(models.Model):
     heading = models.CharField(max_length=50)
     description = models.TextField()
@@ -201,7 +187,6 @@ class OurChildrensSection(models.Model):
 
     def __str__(self):
         return self.heading
-
 
 class OurChildrens(models.Model):
     image = models.ImageField(upload_to='images/our_childrens/')
@@ -216,7 +201,6 @@ class OurChildrens(models.Model):
     def __str__(self):
         return self.name
 
-
 class BlogSection(models.Model):
     heading = models.CharField(max_length=50)
     description = models.TextField(max_length=5000)
@@ -226,7 +210,6 @@ class BlogSection(models.Model):
 
     def __str__(self):
         return self.heading
-
 
 class Blogs(models.Model):
     image = models.ImageField(upload_to='images/blogs/')
@@ -244,7 +227,6 @@ class Blogs(models.Model):
 
     def __str__(self):
         return self.heading
-
 
 class BlogCitations(models.Model):
     url = models.URLField()
