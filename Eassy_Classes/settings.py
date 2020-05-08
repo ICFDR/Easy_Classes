@@ -134,10 +134,10 @@ DJRICHTEXTFIELD_CONFIG = {
     'init_template': 'djrichtextfield/init/tinymce.js',
     'settings': {
         'menubar': False,
-        'plugins': 'link image table code',
+        'plugins': 'link image code',
         'toolbar': 'formatselect | bold italic | removeformat |'
                    ' link unlink image table | code',
         'block_formats': 'Paragraph=p;Header 1=h1;Header 2=h2;Header 3=h3',
-        'width': 700
+        'width': 800
     }
 }
