@@ -254,6 +254,8 @@ class Programs(models.Model):
     def __str__(self):
         return self.heading
 
+
 class Donate(models.Model):
     image = models.ImageField(upload_to='images/donate/')
     content = RichTextField()
+    bank_info = RichTextField()

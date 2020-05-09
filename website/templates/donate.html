@@ -3,17 +3,56 @@
 {% block content %}
 
 {% load static %}
+<style>
 
-<header class="masthead" style="height: 100vh;min-height: 500px;background-image: url('{{ donate.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+</style>
+<header class="masthead"
+        style="height: 50vh;min-height: 450px;background-image: url('{{ donate.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+        <div class="col-md-7  text-center">
+            <h1>
+                Better To Give Than To Receive
+            </h1>
+        </div>
+    </div>
 </header>
-  <div class="container mb-5">
+<br><br>
+
+<div class="container mb-5">
     <div class="row">
-      <div class="col-lg-8">
-		<div class="mt-5 blog-content">
-			{{ donate.content|safe }}
-		</div>
-	  </div>
-	</div>
+        <div class="col-lg-8">
+            <div class="mt-5 blog-content">
+                {{ donate.content|safe }}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card bg-success text-white">
+                <div class="card-body text-center">Donate</div>
+            </div>
+            <div class="card-body bg-light text-dark">
+                <div class="row">
+                    <div class="col-lg-6" style="height:100px;">
+                        <img src="{% static 'images/bank-transfer-logo.png' %}" height="100%">
+                        <label>Bank Transfer</label>
+                    </div>
+                    <div class="col-lg-5" style="height:100px;">
+                        <a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC">
+                            <img src="{% static 'images/payu.jpg' %}" height="100%" width="100%">
+                            <label>PayU money</label>
+                        </a>
+                        
+                    </div>
+                </div>
+                <br><br>
+                <div class="row"  id="bank_info">
+                    {{donate.bank_info | safe}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 
