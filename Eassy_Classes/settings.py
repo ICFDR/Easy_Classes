@@ -137,7 +137,7 @@ DJRICHTEXTFIELD_CONFIG = {
         'plugins': 'link image code',
         'toolbar': 'formatselect | bold italic | removeformat |'
                    ' link unlink image table | code',
-        'block_formats': 'Paragraph=p;Header 1=h1;Header 2=h2;Header 3=h3',
+        'block_formats': 'Paragraph=p;Header 1=h1;Header 2=h2;Header 3=h3;Header 4=h4;Header 5=h5;',
         'width': 800
     }
 }

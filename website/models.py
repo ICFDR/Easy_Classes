@@ -257,5 +257,5 @@ class Programs(models.Model):
 
 class Donate(models.Model):
     image = models.ImageField(upload_to='images/donate/')
-    content = RichTextField()
+
     bank_info = RichTextField()
