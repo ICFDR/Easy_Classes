@@ -11,18 +11,18 @@
   <div class="container">
 	<div class="row justify-content-center mb-5 pb-3">
 	  <div class="col-md-7 heading-section ftco-animate text-center">
-		<h2 class="mb-4">Programs</h2>
+		<h2 class="mb-4">campaigns</h2>
 	  </div>
 	</div>
 	<div class="row d-flex">
-	{% for program in Programs %}
+	{% for campaign in campaigns %}
 	  <div class="col-md-4 d-flex ftco-animate">
 		<div class="blog-entry align-self-stretch">
-		  <a href="programs/{{ program.slug }}" class="block-20" style="background-image: url('{{ program.image.url }}');">
+		  <a href="campaigns/{{ campaign.slug }}" class="block-20" style="background-image: url('{{ campaign.image.url }}');">
 		  </a>
 		  <div class="text p-4 d-block">
-			<h3 class="heading mt-3"><a href="programs/{{ program.slug }}">{{ program.heading }}</a></h3>
-			<p>{{ program.content|truncatewords_html:20|safe }}</p>
+			<h3 class="heading mt-3"><a href="campaigns/{{ campaign.slug }}">{{ campaign.heading }}</a></h3>
+			<p>{{ campaign.content|truncatewords_html:20|safe }}</p>
 		  </div>
 		</div>
 	  </div>

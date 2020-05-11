@@ -238,7 +238,7 @@ class BlogCitations(models.Model):
     class Meta:
         verbose_name_plural = 'BlogCitations'
 
-class Programs(models.Model):
+class Campaign(models.Model):
     image = models.ImageField(upload_to='images/programs/')
     heading = models.CharField(max_length=100)
     content = RichTextField()
@@ -249,7 +249,7 @@ class Programs(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'Programs'
+        verbose_name_plural = 'Campaigns'
 
     def __str__(self):
         return self.heading

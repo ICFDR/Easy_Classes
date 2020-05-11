@@ -8,7 +8,7 @@ urlpatterns = [
     path('blogs',views.bloglist,name = 'bloglist'),
     path('gallery',views.gallery,name = 'gallery'),
     path('about',views.about,name = 'about'),
-    path('programs/<slug:slug>',views.program_view,name = 'program'),
-    path('programs',views.programlist,name = 'programlist'),
+    path('campaigns/<slug:slug>',views.campaign_view,name = 'campaign'),
+    path('campaigns',views.campaignlist,name = 'campaignlist'),
     path('donate',views.donate,name = 'donate'),
 ]
