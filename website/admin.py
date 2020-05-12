@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP,AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam,BlogSection, Blogs,
-                    OurChildrensSection, BlogCitations, AboutUs, Programs, Donate
+                    OurChildrensSection, BlogCitations, AboutUs, Campaign, Donate
                     )
 
 
@@ -39,7 +39,7 @@ admin.site.register(OurChildrens)
 
 admin.site.register(BlogSection)
 
-admin.site.register(Programs)
+admin.site.register(Campaign)
 
 admin.site.register(Donate)
 

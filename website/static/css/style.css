@@ -8569,7 +8569,7 @@ textarea.form-control {
     color: rgba(255, 255, 255, 0.7); }
   .block-23 ul li .icon, .block-23 ul li .text {
     display: table-cell;
-    vertical-align: top; }
+    vertical-align: baseline; }
   .block-23 ul li .icon {
     width: 40px;
     font-size: 18px;

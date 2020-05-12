@@ -3,7 +3,7 @@ from .models import ( Slider, Vision, VisionIcons,
                     Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                     JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                     OurChildrens, OrganizingTeam, BlogSection, Blogs, BlogCitations,
-                    OurChildrensSection, AboutUs, Programs, Donate
+                    OurChildrensSection, AboutUs, Campaign, Donate
                     )
 
 def index(request,moveToBlogs=None):
@@ -18,7 +18,8 @@ def index(request,moveToBlogs=None):
         'OurChildrensSection':OurChildrensSection.objects.all(),
         'OurChildrens':OurChildrens.objects.all(),
         'BlogSection':BlogSection.objects.all(),
-        'Blogs':Blogs.objects.all().order_by('-id')[:3]
+        'Blogs':Blogs.objects.all().order_by('-id')[:3],
+        'campaigns':Campaign.objects.all().order_by('-id')
     }
     return render(request, 'index.html', data)
 
@@ -60,21 +61,21 @@ def about(request):
     }
     return render(request, 'about.html', data)
    
-def program_view(request,slug=None):
-    program = Programs.objects.filter(slug = slug)
+def campaign_view(request,slug=None):
+    campaign = Campaign.objects.filter(slug = slug)
 
-    if program:
-        data = {'program':program[0]}
+    if campaign:
+        data = {'campaign':campaign[0]}
 
-        return render(request, 'program.html', data)
+        return render(request, 'campaign.html', data)
 
-    return programlist(request)
+    return campaignlist(request)
 
-def programlist(request):
+def campaignlist(request):
     data = {
-        'Programs':Programs.objects.all().order_by('-id')
+        'campaigns':Campaign.objects.all().order_by('-id')
     }
-    return render(request, 'programlist.html', data)
+    return render(request, 'campaignlist.html', data)
     
 def donate(request):
     data = {
