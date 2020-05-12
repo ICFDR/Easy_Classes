@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="card bg-info text-white " style="border-radius: 80px 0px 80px 0px;">
+                <div class="card bg-info text-white " style="border-radius: 50px 0px 80px 0px;">
                     <div class="card-body">
                         <h4 class="text-white">Impact of donation </h4>
                         <ul>
@@ -95,26 +95,12 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card bg-success text-white">
-                <div class="card-body text-center">Donate</div>
-            </div>
+            <a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC" class="btn btn-success btn-block">Donate Now</a>
             <div class="card-body bg-light text-dark">
-                <div class="row">
-                    <div class="col-lg-6" style="height:100px;">
-                        <img src="{% static 'images/bank-transfer-logo.png' %}" height="100%">
-                        <label>Bank Transfer</label>
-                    </div>
-                    <div class="col-lg-5" style="height:100px;">
-                        <a target="_blank"
-                           href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC">
-                            <img src="{% static 'images/payu.jpg' %}" height="100%" width="100%">
-                            <label>PayU money</label>
-                        </a>
 
-                    </div>
-                </div>
-                <br><br>
+
                 <div class="row" id="bank_info">
+                    
                     {{donate.bank_info | safe}}
                 </div>
 
