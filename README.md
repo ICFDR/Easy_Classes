@@ -2,7 +2,12 @@
 <img src='media/favicon.webp'/>
 </p>
 
-# Eassy Classes
+# Easy Classes
+
+![GitHub deployments](https://img.shields.io/github/deployments/ICFDR/Eassy_Classes/eassyclasses?label=deployment) ![Website](https://img.shields.io/website?down_message=offline&up_message=live&url=http%3A%2F%2Feassyclasses.herokuapp.com)
+
 ## About
-> ICFDR promotes quality education to the underprivileged sections in developing them as an individual to be able to adjust and sustain in today's global arena. Many children are missing out in life-changing opportunities.
-<p>ICFDR is a non-profit social organization working for upliftment of marginalized and weaker sections of society. iCFDR focuses on social work in the fields of Education, Health, Empowerment and Environment.</P>
+Informative website for [ICFDR](http://icfdr.org/)'s Easy Classes Initiative.
+
+### Contributors
+[pagalprogrammer](https://pagalprogrammer.dev) | [Sarthak](https://svkumar.me) | [Nagendra](https://github.com/Nagendracse1)
