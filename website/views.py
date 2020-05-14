@@ -19,7 +19,7 @@ def index(request,moveToBlogs=None):
         'OurChildrens':OurChildrens.objects.all(),
         'BlogSection':BlogSection.objects.all(),
         'Blogs':Blogs.objects.all().order_by('-id')[:3],
-        'campaigns':Campaign.objects.all().order_by('-id')
+        'campaigns':Campaign.objects.all().order_by('-id')[:5]
     }
     return render(request, 'index.html', data)
 
@@ -37,13 +37,15 @@ def blog_view(request,slug=None):
 def bloglist(request):
     data = {
         'BlogSection':BlogSection.objects.all(),
-        'Blogs':Blogs.objects.all().order_by('-id')
+        'Blogs':Blogs.objects.all().order_by('-id'),
+        'campaigns': Campaign.objects.all().order_by('-id')[:5]
     }
     return render(request, 'bloglist.html', data)
 
 def gallery(request):
     data = {
-        'Gallery':Gallery.objects.all()
+        'Gallery':Gallery.objects.all(),
+        'campaigns': Campaign.objects.all().order_by('-id')[:5]
     }
     return render(request, 'gallery.html', data)
 
@@ -58,6 +60,7 @@ def about(request):
         'LeaderSays':LeaderSays.objects.all(),
         'BoardTeam':BoardTeam.objects.all(),
         'OrganizingTeam':OrganizingTeam.objects.all(),
+        'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
     return render(request, 'about.html', data)
    
@@ -79,7 +82,8 @@ def campaignlist(request):
     
 def donate(request):
     data = {
-        'donate':Donate.objects.all()[0]
+        'donate':Donate.objects.all()[0],
+        'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
     return render(request, 'donate.html', data)
     

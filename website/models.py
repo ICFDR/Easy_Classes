@@ -238,7 +238,9 @@ class BlogCitations(models.Model):
     class Meta:
         verbose_name_plural = 'BlogCitations'
 
+
 class Campaign(models.Model):
+    compaign_name = models.CharField(max_length=30)
     image = models.ImageField(upload_to='images/programs/')
     heading = models.CharField(max_length=100)
     content = RichTextField()
