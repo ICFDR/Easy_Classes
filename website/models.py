@@ -259,13 +259,14 @@ class BlogCitations(models.Model):
 
 class Campaign(models.Model):
     compaign_name = models.CharField(max_length=30)
-    image = models.ImageField(upload_to='images/programs/')
-    heading = models.CharField(max_length=100)
-    content = RichTextField()
+    image = models.ImageField(upload_to='images/campaign/')
+    text_on_image = models.CharField(max_length=30)
+    description = RichTextField()
+    button_text = models.CharField(max_length=30)
     slug = models.SlugField(max_length=100, default='', blank=True, unique=True)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.heading, allow_unicode=True)
+        self.slug = slugify(self.compaign_name, allow_unicode=True)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -273,6 +274,18 @@ class Campaign(models.Model):
 
     def __str__(self):
         return self.compaign_name
+
+
+class CampaignBlog(models.Model):
+    image = models.ImageField(upload_to='images/campaign')
+    content = RichTextField()
+    blog = models.ForeignKey(to=Campaign, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.heading
+
+    class Meta:
+        verbose_name_plural = 'CampaignBlog'
 
 
 class Donate(models.Model):
