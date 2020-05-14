@@ -18,15 +18,17 @@ class AboutUs(models.Model):
 
 
 class Slider(models.Model):
+    image = models.ImageField(upload_to='images/slider/', default='')
     heading = models.CharField(max_length=100)
     description = models.CharField(max_length=100, blank=True, default='')
-    image = models.ImageField(upload_to='images/slider/', default='')
+
 
     class Meta:
         verbose_name_plural = 'Slider'
 
     def __str__(self):
         return self.heading
+
 
 
 class Vision(models.Model):
@@ -168,28 +170,6 @@ class OrganizingTeam(models.Model):
         return self.name
 
 
-@receiver(models.signals.post_delete, sender=OrganizingTeam)
-def auto_delete_file_on_delete(sender, instance, **kwargs):
-    if instance.image:
-        if os.path.isfile(instance.image.path):
-            os.remove(instance.image.path)
-
-
-@receiver(models.signals.pre_save, sender=OrganizingTeam)
-def auto_delete_file_on_change(sender, instance, **kwargs):
-    if not instance.pk:
-        return False
-
-    try:
-        old_file = sender.objects.get(pk=instance.pk).image
-    except sender.DoesNOtExist:
-        return False
-
-    new_file = instance.image
-
-    if not old_file == new_file:
-        if os.path.isfile(old_file.path):
-            os.remove(old_file.path)
 
 
 class OurChildrensSection(models.Model):
@@ -294,14 +274,14 @@ class Donate(models.Model):
     bank_info = RichTextField()
 
 
-@receiver(models.signals.post_delete, sender=Donate)
+@receiver(models.signals.post_delete)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
     if instance.image:
         if os.path.isfile(instance.image.path):
             os.remove(instance.image.path)
 
 
-@receiver(models.signals.pre_save, sender=Donate)
+@receiver(models.signals.pre_save)
 def auto_delete_file_on_change(sender, instance, **kwargs):
     if not instance.pk:
         return False
