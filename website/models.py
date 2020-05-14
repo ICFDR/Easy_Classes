@@ -22,13 +22,11 @@ class Slider(models.Model):
     heading = models.CharField(max_length=100)
     description = models.CharField(max_length=100, blank=True, default='')
 
-
     class Meta:
         verbose_name_plural = 'Slider'
 
     def __str__(self):
         return self.heading
-
 
 
 class Vision(models.Model):
@@ -168,8 +166,6 @@ class OrganizingTeam(models.Model):
 
     def __str__(self):
         return self.name
-
-
 
 
 class OurChildrensSection(models.Model):
