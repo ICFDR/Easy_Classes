@@ -4,19 +4,26 @@
 
 {% load static %}
 
-<header class="masthead" style="height: 100vh;min-height: 500px;background-image: url('{{ campaign.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
-<div class="scroll" style="position: absolute;right: 2rem;bottom: 0.5rem;">
-	Scroll Down to read More
-</div>
+<header class="masthead" style="height: 50vh;min-height: 450px;background-image: url('{{ campaign.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+
 </header>
   <div class="container mb-5" style="margin-top:-200px;">
     <div class="row">
       <div class="col-lg-8">
         <div class="blog-head">
-			<h1 class="mt-4" style="color:#fff;">{{ campaign.heading }}</h1>
+			<h1 class="mt-4" style="color:#fff;">{{ campaign.compaign_name }}</h1>
+			<h1 class="mt-4" style="color:#fff;">{{ campaign.text_on_image }}</h1>
+			<h1 class="mt-4" style="color:#fff;">{{ campaign.description | safe }}</h1>
+			<h1 class="mt-4" style="color:#fff;">{{ campaign.button_text }}</h1>
+
 		</div>
 		<div class="mt-5 blog-content" style="padding:32px;">
-			{{ campaign.content| safe }}
+			{% for blog in blog %}
+			<img src="{{blog.image.url}}">
+
+			{{blog.content | safe}}
+			{% endfor %}
+
 		</div>
 	  </div>
 	</div>

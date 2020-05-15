@@ -81,8 +81,8 @@
              <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Our Campaigns</h2>
               <ul class="list-unstyled">
-                {% for list in campaigns %}
-                  <li><a target="_blank" href="#" class="py-2 d-block">{{list.compaign_name}}</a></li>
+                {% for campaign in campaigns %}
+                  <li><a  href="campaigns/{{ campaign.slug }}" class="py-2 d-block">{{campaign.compaign_name}}</a></li>
                 {% endfor %}
               </ul>
             </div>

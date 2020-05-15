@@ -257,8 +257,7 @@ class CampaignBlog(models.Model):
     content = RichTextField()
     blog = models.ForeignKey(to=Campaign, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.heading
+
 
     class Meta:
         verbose_name_plural = 'CampaignBlog'
