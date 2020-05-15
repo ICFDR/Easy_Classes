@@ -20,7 +20,7 @@ def index(request, moveToBlogs=None):
         'OurChildrens': OurChildrens.objects.all(),
         'BlogSection': BlogSection.objects.all(),
         'Blogs': Blogs.objects.all().order_by('-id')[:3],
-        'campaigns': Campaign.objects.all().order_by('-id')[:5]
+        'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
     return render(request, 'index.html', data)
 
@@ -30,7 +30,8 @@ def blog_view(request, slug=None):
     blogCitations = BlogCitations.objects.filter(blog=blog[0])
 
     if blog:
-        data = {'blog': blog[0], 'cites': blogCitations}
+        data = {'blog': blog[0], 'cites': blogCitations,
+                'campaigns': Campaign.objects.all().order_by('-id')[:5],}
 
         return render(request, 'blog.html', data)
 
@@ -75,7 +76,8 @@ def campaign_view(request, slug=None):
 
     if campaign:
         data = {'campaign': campaign[0],
-                'blog':blog}
+                'blog':blog,
+                'campaigns': Campaign.objects.all().order_by('-id')[:5],}
 
         return render(request, 'campaign.html', data)
 
