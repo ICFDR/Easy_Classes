@@ -3,7 +3,7 @@ from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs, BlogCitations,
-                     OurChildrensSection, AboutUs, Campaign, Donate,CampaignBlog
+                     OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog
                      )
 
 
@@ -31,7 +31,7 @@ def blog_view(request, slug=None):
 
     if blog:
         data = {'blog': blog[0], 'cites': blogCitations,
-                'campaigns': Campaign.objects.all().order_by('-id')[:5],}
+                'campaigns': Campaign.objects.all().order_by('-id')[:5], }
 
         return render(request, 'blog.html', data)
 
@@ -76,8 +76,8 @@ def campaign_view(request, slug=None):
 
     if campaign:
         data = {'campaign': campaign[0],
-                'blog':blog,
-                'campaigns': Campaign.objects.all().order_by('-id')[:5],}
+                'blog': blog,
+                'campaigns': Campaign.objects.all().order_by('-id')[:5], }
 
         return render(request, 'campaign.html', data)
 

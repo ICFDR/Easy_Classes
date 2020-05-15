@@ -9,6 +9,6 @@ urlpatterns = [
     path('gallery',views.gallery,name = 'gallery'),
     path('about',views.about,name = 'about'),
     path('campaigns/<slug:slug>',views.campaign_view,name = 'campaign'),
-    path('campaigns',views.campaignlist,name = 'campaignlist'),
+    #path('campaigns',views.campaignlist,name = 'campaignlist'),
     path('donate',views.donate,name = 'donate'),
 ]
