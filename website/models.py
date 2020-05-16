@@ -234,9 +234,9 @@ class BlogCitations(models.Model):
 
 
 class Campaign(models.Model):
-    compaign_name = models.CharField(max_length=30)
+    compaign_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/campaign/')
-    text_on_image = models.CharField(max_length=50)
+    text_on_image = models.CharField(max_length=150)
     description = RichTextField()
     button_text = models.CharField(max_length=30)
     slug = models.SlugField(max_length=100, default='', blank=True, unique=True)
