@@ -269,6 +269,34 @@ class Donate(models.Model):
     bank_info = RichTextField()
 
 
+class Fellowship(models.Model):
+    header_image = models.ImageField(upload_to='images/fellowship/header/')
+
+
+class FellowshipImages(models.Model):
+    image = models.ImageField(upload_to='image/fellowship/')
+    fellowship = models.ForeignKey(to=Fellowship, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image.name
+
+    class Meta:
+        verbose_name_plural = 'Images'
+
+
+class FellowSays(models.Model):
+    image = models.ImageField(upload_to='images/fellowship/fellow_says')
+    content = models.TextField()
+    fellowship = models.ForeignKey(to=Fellowship, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image.name
+
+    class Meta:
+        verbose_name_plural = 'Fellow Says'
+
+
+
 @receiver(models.signals.post_delete)
 def auto_delete_file_on_delete(instance, **kwargs):
     try:

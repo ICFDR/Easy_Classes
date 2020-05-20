@@ -3,7 +3,8 @@ from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs,
-                     OurChildrensSection, BlogCitations, AboutUs, Campaign, CampaignBlog, Donate
+                     OurChildrensSection, BlogCitations, AboutUs, Campaign, CampaignBlog, Donate,
+                     Fellowship, FellowSays, FellowshipImages,
                      )
 
 admin.site.register(AboutUs)
@@ -38,8 +39,6 @@ admin.site.register(OurChildrens)
 
 admin.site.register(BlogSection)
 
-# admin.site.register(Campaign)
-
 admin.site.register(Donate)
 
 
@@ -61,3 +60,18 @@ class InlineCitations(admin.StackedInline):
 @admin.register(Campaign)
 class CampaignAdmin(admin.ModelAdmin):
     inlines = [InlineCitations, ]
+
+
+class InlineCitations(admin.StackedInline):
+    model = FellowshipImages
+    extra = 0
+
+
+class InlineCitations2(admin.StackedInline):
+    model = FellowSays
+    extra = 0
+
+
+@admin.register(Fellowship)
+class FellowshipAdmin(admin.ModelAdmin):
+    inlines = [InlineCitations, InlineCitations2, ]
