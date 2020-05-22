@@ -10,4 +10,5 @@ urlpatterns = [
     path('about',views.about,name = 'about'),
     path('campaigns/<slug:slug>',views.campaign_view,name = 'campaign'),
     path('donate',views.donate,name = 'donate'),
+    path('fellowship',views.fellowship,name = 'fellowship'),
 ]

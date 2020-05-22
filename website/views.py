@@ -3,7 +3,7 @@ from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs, BlogCitations,
-                     OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog
+                     OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog,Fellowship,FellowSays,FellowshipImages
                      )
 
 
@@ -97,3 +97,12 @@ def donate(request):
         'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
     return render(request, 'donate.html', data)
+
+
+def fellowship(request):
+    data = {
+        'fellowship':Fellowship.objects.all()[0],
+        'campaigns': Campaign.objects.all().order_by('-id')[:5],
+    }
+
+    return render(request, 'fellowship.html',data)
