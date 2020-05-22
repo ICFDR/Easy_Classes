@@ -274,7 +274,7 @@ class Fellowship(models.Model):
 
 
 class FellowshipImages(models.Model):
-    image = models.ImageField(upload_to='image/fellowship/')
+    image = models.ImageField(upload_to='images/fellowship/')
     fellowship = models.ForeignKey(to=Fellowship, on_delete=models.CASCADE)
 
     def __str__(self):
