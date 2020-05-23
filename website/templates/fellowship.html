@@ -42,6 +42,10 @@
 .fellowBox.blue .title{ color: #6558FF; }
 
 
+
+
+
+
 </style>
 <header class="masthead"
         style="height: 50vh;min-height: 450px;background-image: url('{{ fellowship.header_image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
@@ -72,5 +76,73 @@
     </div>
 </div>
 
+<div class="container">
 
+    <div class="row">
+
+        {% for img in images %}
+        {% if forloop.counter == 1%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 2%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 3%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;z-index:-1;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 4%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 5%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+<div class="container-fluid text-left" style="background-color:#ddd;color:black;">
+
+    <h2 class="text-center">About the Fellowship </h2>
+    <p class="text-left">
+        The iCFDR fellowship program will be for twelve months. The program makes sure to transform these young
+        individuals into an excellent leader with futuristic skills.A fellow is expected to enthusiastically and constructively participate in the following events:
+    </p>
+
+    <ul>
+        <li>Working with iCFDR as a teacher and to follow the standardised curriculum prescribed.</li>
+        <li>Should be able to deal empathetically with all the kids, compassionately accepting who they are and
+            supporting them through thick and thin.
+        </li>
+        <li>Should be able to carefully analyse the psychology of the children.</li>
+        <li>Should not be restricting their world to books, but boosting up their creative side which is concealed under
+            the sheets of misery, poverty and dejection.
+        </li>
+        <li>Should focus on the holistic development of the child.</li>
+        <li>Should teach the important life skills needed to be a better human.</li>
+    </ul>
+    <p>The fellow will be informed before the classes to be taken with detailed information of the
+        whereabouts/location. </p>
+</div>
 {% endblock %}
