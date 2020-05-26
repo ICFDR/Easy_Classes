@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+.fellowBox{
+    color: #fff;
+    font-family: 'Hind', sans-serif;
+    text-align: center;
+    padding: 25px 5px 30px 0;
+    box-shadow: 15px 0 15px -15px rgba(0, 0, 0, 0.5) inset;
+    position: relative;
+}
+
+.fellowBox .fellow-content{
+    background: linear-gradient(to left bottom,#FD9743,#FF018F);
+    padding: 15px;
+    border-radius:0 30px 30px 0;
+    box-shadow: 20px 0 20px -20px rgba(0, 0, 0, 0.5) inset;
+}
+.fellowBox .title{
+    color: #FF018F;
+    background: #fff;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 15px 10px;
+    margin: 0 -20px 20px -15px;
+    border-radius: 0 30px 30px 0;
+    box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.5) inset, 5px 0 5px rgba(0,0,0,0.2);
+}
+.fellowBox .description{
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0 0 20px;
+}
+
+
+.fellowBox.blue:after{ background: #6558FF; }
+.fellowBox.blue .fellow-content{ background: linear-gradient(to left bottom,#02D7DD,#6558FF); }
+.fellowBox.blue .title{ color: #6558FF; }
+
+
+
+
+
+
+</style>
+<header class="masthead"
+        style="height: 50vh;min-height: 450px;background-image: url('{{ fellowship.header_image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+</header>
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-9">
+            <div class="fellowBox blue">
+                <div class="fellow-content">
+                    <h3 class="title">Why be a fellow</h3>
+                    <p class="description">“Life doesn't get better by chance, it gets better by change”. And the change
+                        starts with YOU! India has got 600 million young people and an equivalent force is needed to
+                        bring a massive change for the betterment of the nation. There is a huge difference between
+                        thinking about changing the world and trying to change it instead. iCFDR fellowship allows you
+                        to change the world by participating in the most important social work: Transforming the Future
+                        of India. This can be attained by educating the downtrodden and children belonging to
+                        marginalized communities.
+                        670 million of India’s population have no big dream than to attain two meals a day. In this
+                        wretched state, we can't imagine the kids of these communities to dream about education. You as
+                        a Fellow will help them all, by igniting their dreams with the spark of knowledge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        {% for img in images %}
+        {% if forloop.counter == 1%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 2%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 3%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;z-index:-1;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 4%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-6"></div>
+        {% elif forloop.counter == 5%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+
+        </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</div>
+<br>
+<div class="container-fluid text-left" style="background-color:#ddd;color:black;">
+
+    <h2 class="text-center">About the Fellowship </h2>
+    <p class="text-left">
+        The iCFDR fellowship program will be for twelve months. The program makes sure to transform these young
+        individuals into an excellent leader with futuristic skills.A fellow is expected to enthusiastically and constructively participate in the following events:
+    </p>
+
+    <ul>
+        <li>Working with iCFDR as a teacher and to follow the standardised curriculum prescribed.</li>
+        <li>Should be able to deal empathetically with all the kids, compassionately accepting who they are and
+            supporting them through thick and thin.
+        </li>
+        <li>Should be able to carefully analyse the psychology of the children.</li>
+        <li>Should not be restricting their world to books, but boosting up their creative side which is concealed under
+            the sheets of misery, poverty and dejection.
+        </li>
+        <li>Should focus on the holistic development of the child.</li>
+        <li>Should teach the important life skills needed to be a better human.</li>
+    </ul>
+    <p>The fellow will be informed before the classes to be taken with detailed information of the
+        whereabouts/location. </p>
+</div>
+{% endblock %}
