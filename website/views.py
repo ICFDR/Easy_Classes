@@ -104,6 +104,8 @@ def donate(request):
 def fellowship(request):
     data = {
         'fellowship':Fellowship.objects.all()[0],
+        'images':FellowshipImages.objects.filter(fellowship=Fellowship.objects.all()[0]),
+        'fellow_says':FellowSays.objects.filter(fellowship=Fellowship.objects.all()[0]),
         'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
 
