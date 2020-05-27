@@ -1,14 +1,12 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs, BlogCitations,
                      OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog,Fellowship,FellowSays,FellowshipImages
                      )
-from django.contrib import messages
-from django.contrib.auth import login,authenticate,logout
-from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from .forms import SignupForm
+
+
 def index(request, moveToBlogs=None):
     data = {
         'Slider': Slider.objects.all(),
@@ -104,58 +102,9 @@ def donate(request):
 def fellowship(request):
     data = {
         'fellowship':Fellowship.objects.all()[0],
+        'images':FellowshipImages.objects.filter(fellowship=Fellowship.objects.all()[0]),
+        'fellow_says':FellowSays.objects.filter(fellowship=Fellowship.objects.all()[0]),
         'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
 
     return render(request, 'fellowship.html',data)
-
-
-
-def fundraiser(request):
-    if(request.user.is_authenticated):
-        return render(request, 'fundraiser.html')
-    return render(request, 'LoginSignup.html')
-
-
-def fundraiser_login(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request=request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.info(request, f"You are now logged in as {username}")
-                return redirect('fundraiser')
-            else:
-                messages.error(request, "Invalid username or password.")
-        else:
-            messages.error(request, "Invalid username or password.")
-    form = AuthenticationForm()
-    return render(request=request,
-                  template_name="fundLogin.html",
-                  context={"form": form})
-
-
-def fundraiser_signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            form.save()
-            email=form.cleaned_data.get('email')
-            password=form.cleaned_data.get('password')
-            user=authenticate(username=email,password=password)
-            login(request,user)
-            messages.success(request,f'sign up successful')
-            return redirect('fundraiser')
-        else:
-            messages.success(request, f'give valid inputs')
-            return redirect('fundSignup')
-    form = SignupForm()
-    return render(request,'fundSignup.html',{'form':form})
-
-
-def logout_request(request):
-    logout(request)
-    return redirect("fundraiser")

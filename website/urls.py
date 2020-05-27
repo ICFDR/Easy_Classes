@@ -11,8 +11,4 @@ urlpatterns = [
     path('campaigns/<slug:slug>',views.campaign_view,name = 'campaign'),
     path('donate',views.donate,name = 'donate'),
     path('fellowship',views.fellowship,name = 'fellowship'),
-    path('fundraiser', views.fundraiser, name='fundraiser'),
-    path('fundraiser/login', views.fundraiser_login, name='fundLogin'),
-    path('fundraiser/signup', views.fundraiser_signup, name='fundSignup'),
-    path('fundraiser/logout',views.logout_request)
 ]
