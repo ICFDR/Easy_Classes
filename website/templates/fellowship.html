@@ -60,6 +60,7 @@
 
 
 
+
 </style>
 <header class="masthead"
         style="height: 50vh;min-height: 450px;background-image: url('{{ fellowship.header_image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
@@ -72,8 +73,9 @@
 
         <div class="fellowBox blue">
             <div class="fellow-content">
-                <h3 class="title">Why be a fellow</h3>
-                <p class="description text-dark text-left">“Life doesn't get better by chance, it gets better by change”. And the change
+                <h3 class="title text-dark">Why be a fellow</h3>
+                <p class="description text-dark text-justify" style="padding:40px;">“Life doesn't get better by chance,
+                    it gets better by change”. And the change
                     starts with YOU! India has got 600 million young people and an equivalent force is needed to
                     bring a massive change for the betterment of the nation. There is a huge difference between
                     thinking about changing the world and trying to change it instead. iCFDR fellowship allows you
@@ -95,19 +97,68 @@
     <div class="row">
 
         {% for img in images %}
-        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;">
+        {% if forloop.counter == 1%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
 
-            <img  src={{img.image.url}} alt="" height="300px" width="100%">
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="320">
+
+        </div>
+        {% elif forloop.counter == 2%}
+         <div class="col-lg-4 col-md-4 col-6" style="padding:50px;margin:0px;z-index:-1;">
+
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="220">
+
+        </div>
+        {% elif forloop.counter == 3%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+           <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="320">
+
+        </div>
+        {% elif forloop.counter == 4%}
+       <div class="col-lg-4 col-md-4 col-6" style="padding:50px;margin:0px;z-index:-1;">
+
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="220">
+
+        </div>
+        {% elif forloop.counter == 5%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;z-index:-1;">
+
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="320">
+
+        </div>
+        {% elif forloop.counter == 6%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:50px;margin:0px;z-index:-1;">
+
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="220">
+
+        </div>
+        {% elif forloop.counter == 7%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="320">
+
+        </div>
+        {% elif forloop.counter == 8%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:50px;margin:0px;z-index:-1;">
+
+            <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="220">
+
+        </div>
+        {% elif forloop.counter == 9%}
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+
+           <img class="img-responsive" src={{img.image.url}} alt="" width="100%" height="320">
 
         </div>
 
-
+        {% endif %}
         {% endfor %}
     </div>
 
 </div>
 <br>
-<div class="container-fluid text-left" style="background-color:#ddd;color:black;">
+<div class="container-fluid text-left" style="background-color:#a7a4a4;color:black;">
 
     <h2 class="text-center">About the Fellowship </h2>
     <p class="text-left">
