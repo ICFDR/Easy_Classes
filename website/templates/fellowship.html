@@ -40,8 +40,9 @@
 
 
 .fellowBox.blue:after{ background: #6558FF; }
-.fellowBox.blue .fellow-content{ background: linear-gradient(to left bottom,#02D7DD,#6558FF); }
+.fellowBox.blue .fellow-content{ background: linear-gradient(to left bottom,#fbc73f,#fbc73f); }
 .fellowBox.blue .title{ color: #6558FF; }
+
 
 
 
@@ -72,7 +73,7 @@
         <div class="fellowBox blue">
             <div class="fellow-content">
                 <h3 class="title">Why be a fellow</h3>
-                <p class="description">“Life doesn't get better by chance, it gets better by change”. And the change
+                <p class="description text-dark text-left">“Life doesn't get better by chance, it gets better by change”. And the change
                     starts with YOU! India has got 600 million young people and an equivalent force is needed to
                     bring a massive change for the betterment of the nation. There is a huge difference between
                     thinking about changing the world and trying to change it instead. iCFDR fellowship allows you
@@ -94,42 +95,13 @@
     <div class="row">
 
         {% for img in images %}
-        {% if forloop.counter == 1%}
-        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
+        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;">
 
-            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-6"></div>
-        {% elif forloop.counter == 2%}
-        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
-
-            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-6"></div>
-        {% elif forloop.counter == 3%}
-        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;z-index:-1;">
-
-            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-6"></div>
-        {% elif forloop.counter == 4%}
-        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
-
-            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-6"></div>
-        {% elif forloop.counter == 5%}
-        <div class="col-lg-4 col-md-4 col-6" style="padding:0px;margin:0px;box-shadow: 10px 10px 5px grey;">
-
-            <img class="img-fluid img-thumbnail" src={{img.image.url}} alt="">
+            <img  src={{img.image.url}} alt="" height="300px" width="100%">
 
         </div>
 
-        {% endif %}
+
         {% endfor %}
     </div>
 
@@ -161,9 +133,9 @@
 </div>
 
 
-<div id="carousel" class="carousel slide" data-ride="carousel"
-     style="background: linear-gradient(to left bottom,#02D7DD,#6558FF);height: 10vh;min-height: 300px;color:white;">
-    <h2 class="text-center" style="color:#e8c7c7;">Fellow Says</h2>
+<div id="carousel" class="carousel slide text-dark" data-ride="carousel"
+     style="background: #fbc73f;height: 10vh;min-height: 360px;">
+    <h2 class="text-center" style="">Fellow Says</h2>
     <ol class="carousel-indicators">
         {% for says in fellow_says %}
         {% if forloop.first %}
@@ -227,6 +199,8 @@
     </a>
 </div>
 <br>
+
+
 <div class="container" style="border: 2px solid red;border-radius: 10px;color:black;padding:10px;">
     <h2 class="text-center">The pre-eminent will be awarded</h2>
     <p class="text-dark">Your hard work never gets unremarked at ICFDR. We honour the individuals who have strived hard
@@ -270,7 +244,7 @@
     </div>
 </div>
 <br>
-<a target="_blank" href="#"
+<a href="#"
    class="btn btn-success btn-block " style="width:20%;height:4%;font-size:200%;margin:auto;border-radius: 8px;">Register</a>
 <br>
 

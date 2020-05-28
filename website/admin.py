@@ -64,8 +64,8 @@ class CampaignAdmin(admin.ModelAdmin):
 
 class InlineCitations(admin.StackedInline):
     model = FellowshipImages
-    extra = 0
-    max_num = 5
+    extra = 9
+    max_num = 9
 
 
 class InlineCitations2(admin.StackedInline):
