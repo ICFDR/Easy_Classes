@@ -161,3 +161,9 @@ def fundraiser_signup(request):
 def logout_request(request):
     logout(request)
     return redirect("fundraiser")
+
+def fellowship_application(request):
+    data={
+        'campaigns': Campaign.objects.all().order_by('-id')[:5],
+    }
+    return render(request, 'fellowship_application.html',data)

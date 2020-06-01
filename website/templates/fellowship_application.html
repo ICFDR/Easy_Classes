@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+{% block head %}
+
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link href="{% static 'css/fellow_app.css' %}" rel="stylesheet">
+<script src="{% static 'js/fellow_app.js' %}"></script>
+
+
+<header class="masthead"
+        style="height: 50vh;min-height: 450px;background-image: url('{% static 'images/application.jpg' %}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+</header>
+
+
+<div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0"
+         aria-valuemax="100"></div>
+</div>
+
+<div class="container">
+    <form id="regiration_form" type="post" action="#">
+        { % csrf_token %}
+        <fieldset>
+            <h2>Step 1: Personal informataion</h2>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" name="email" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <label for="mob">Mobile Number</label>
+                <input type="text" class="form-control" id="mob" placeholder="Mobile Number">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Sex</label>
+                <select name="sex" class="form-control">
+                    <option>Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>other</option>
+                </select>
+            </div>
+
+            <div class="form-group"> <!-- Date input -->
+                <label class="control-label" for="date">Date of Birth:</label>
+                <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+            </div>
+
+            <div class="form-group">
+                <label for="City">City/Town (Currently residing)</label>
+                <input type="text" class="form-control" id="City" name="city" placeholder="City/Town">
+            </div>
+
+            <div class="form-group">
+                <label for="State">State</label>
+                <input type="text" class="form-control" id="State" name="state" placeholder="State">
+            </div>
+
+            <div class="form-group">
+                <label for="Address">Permanent Address</label>
+                <textarea type="text" class="form-control" id="Address" name="address" placeholder="Permanent Address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Academic Qualifications</label>
+                <select name="academic" class="form-control">
+                    <option>Select</option>
+                    <option>Graduation</option>
+                    <option>HSC</option>
+                    <option>SSC</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="lang">Languages Known</label>
+                <input type="text" class="form-control" id="lang" name="lang" placeholder="Languages Known">
+            </div>
+
+            <input type="button" name="password" class="next btn btn-info" value="Next"/>
+        </fieldset>
+
+
+
+        <fieldset>
+            <h2> Step 2: Current</h2>
+            <div class="form-group">
+                <label >Are you Currently Working?</label>
+                <input type="text" class="form-control" name="working" >
+            </div>
+            <div class="form-group">
+                <label >If Yes, please mention the name of organisation</label>
+                <input type="text" class="form-control" name="org" >
+            </div>
+
+            <div class="form-group">
+                <label >Have you been a social worker before? </label>
+                <input type="text" class="form-control" name="before" >
+            </div>
+
+            <div class="form-group">
+                <label >If Yes, please mention the name of organisation</label>
+                <input type="text" class="form-control" name="b_org" >
+            </div>
+
+            <div class="form-group">
+                <label >Define Leadership.</label>
+                <textarea type="text" class="form-control" name="leadership" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label >Why do you want to be a Fellow?</label>
+                <textarea type="text" class="form-control" name="why_fellow" ></textarea>
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
+            <input type="button" name="next" class="next btn btn-info" value="Next"/>
+        </fieldset>
+
+
+
+        <fieldset>
+            <h2>Step 3: </h2>
+
+            <div class="form-group">
+                <label for="address">Why do you think education is important?</label>
+                <textarea class="form-control" name="edu_imp" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">How can you change the perspective of a child who thinks education is worthless?</label>
+                <textarea class="form-control" name="edu_worth" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Explain how you are going to be empathetic with the kids who are divergent.</label>
+                <textarea class="form-control" name="empathetic" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">What are your strengths and weaknesses as a social worker?</label>
+                <textarea class="form-control" name="strengths" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">What motivates you to selflessly work for us without pay?</label>
+                <textarea class="form-control" name="motivates" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">How do you plan on building a healthy relationship with the students?</label>
+                <textarea class="form-control" name="healthy" ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="address">When can you start? (DD/MM/YYYY)</label>
+                <input class="form-control" name="healthy" >
+            </div>
+
+            <div class="form-group">
+                <label for="address">References:</label>
+                <input class="form-control" name="healthy" >
+            </div>
+
+            <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
+            <input type="submit" name="submit" class="submit btn btn-success" value="Submit"/>
+        </fieldset>
+    </form>
+
+</div>
+<script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'dd/mm/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+
+</script>
+
+{% endblock %}

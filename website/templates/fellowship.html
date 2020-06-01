@@ -186,7 +186,7 @@
 
 <div id="carousel" class="carousel slide text-dark" data-ride="carousel"
      style="background: #fbc73f;height: 10vh;min-height: 360px;">
-    <h2 class="text-center" style="">Fellow Says</h2>
+    <h2 class="text-left" style="margin-left:20px">Fellow Says</h2>
     <ol class="carousel-indicators">
         {% for says in fellow_says %}
         {% if forloop.first %}
@@ -295,7 +295,7 @@
     </div>
 </div>
 <br>
-<a href="#"
+<a href="{% url 'form' %}"
    class="btn btn-success btn-block " style="width:20%;height:4%;font-size:200%;margin:auto;border-radius: 8px;">Register</a>
 <br>
 

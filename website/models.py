@@ -296,6 +296,12 @@ class FellowSays(models.Model):
         verbose_name_plural = 'Fellow Says'
 
 
+class FellowshipApplicationForm(models.Model):
+    pass
+
+
+
+
 @receiver(models.signals.post_delete)
 def auto_delete_file_on_delete(instance, **kwargs):
     try:
