@@ -297,8 +297,31 @@ class FellowSays(models.Model):
 
 
 class FellowshipApplicationForm(models.Model):
-    pass
+    full_name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+    mobile_no = models.CharField(max_length=200)
+    sex = models.CharField(max_length=200)
+    city = models.CharField(max_length=100)
+    permanent_address = models.TextField()
+    academic_qualification = models.CharField(max_length=100)
+    language_known = models.CharField(max_length=200)
+    are_you_currently_working = models.CharField(max_length=10)
+    if_yes_please_mention_the_organisation = models.CharField(max_length=300)
+    have_you_been_a_social_worker_before = models.CharField(max_length=300)
+    if_yes_please_mention_the_organisation = models.CharField(max_length=300)
+    define_leadership = models.TextField()
+    why_do_you_want_to_be_a_fellow = models.TextField()
+    why_do_you_think_education_is_important = models.TextField()
+    how_can_you_change_the_perspective_of_a_chld_who_think_educartion_is_worthless = models.TextField()
+    explain_how_you_are_going_to_be_empathetic_with_the_child_who_are_divergent = models.TextField()
+    what_are_your_strength_and_weakness_as_a_social_worker = models.TextField()
+    what_motivates_you_to_selfilessly_work_for_us_without_pay = models.TextField()
+    how_do_you_plan_on_building_a_healthy_relationship_with_the_students = models.TextField()
+    when_you_start = models.CharField(max_length=50)
+    references = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.full_name
 
 
 

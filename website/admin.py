@@ -4,7 +4,7 @@ from .models import (Slider, Vision, VisionIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs,
                      OurChildrensSection, BlogCitations, AboutUs, Campaign, CampaignBlog, Donate,
-                     Fellowship, FellowSays, FellowshipImages,
+                     Fellowship, FellowSays, FellowshipImages,FellowshipApplicationForm
                      )
 
 admin.site.register(AboutUs)
@@ -40,6 +40,8 @@ admin.site.register(OurChildrens)
 admin.site.register(BlogSection)
 
 admin.site.register(Donate)
+
+admin.site.register(FellowshipApplicationForm)
 
 
 class InlineCitations(admin.StackedInline):
