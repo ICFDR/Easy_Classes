@@ -22,23 +22,26 @@
 </div>
 
 <div class="container">
-    <form id="regiration_form" type="post" action="#">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+    <form id="regiration_form" method="post" action="{% url 'form' %}">
         {% csrf_token %}
         <fieldset>
             <h2>Step 1: Personal informataion</h2>
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" class="form-control" id="name" name="email" placeholder="Name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
             </div>
 
             <div class="form-group">
                 <label for="mob">Mobile Number</label>
-                <input type="text" class="form-control" id="mob" placeholder="Mobile Number">
+                <input type="text" class="form-control" name="mob" placeholder="Mobile Number" required>
             </div>
 
             <div class="form-group">
@@ -53,27 +56,27 @@
 
             <div class="form-group"> <!-- Date input -->
                 <label class="control-label" for="date">Date of Birth:</label>
-                <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text"/>
+                <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text" required>
             </div>
 
             <div class="form-group">
                 <label for="City">City/Town (Currently residing)</label>
-                <input type="text" class="form-control" id="City" name="city" placeholder="City/Town">
+                <input type="text" class="form-control" id="City" name="city" placeholder="City/Town" required>
             </div>
 
             <div class="form-group">
                 <label for="State">State</label>
-                <input type="text" class="form-control" id="State" name="state" placeholder="State">
+                <input type="text" class="form-control" id="State" name="state" placeholder="State" required>
             </div>
 
             <div class="form-group">
                 <label for="Address">Permanent Address</label>
-                <textarea type="text" class="form-control" id="Address" name="address" placeholder="Permanent Address"></textarea>
+                <textarea type="text" class="form-control" id="Address" name="address" placeholder="Permanent Address" required></textarea>
             </div>
 
             <div class="form-group">
                 <label for="name">Academic Qualifications</label>
-                <select name="academic" class="form-control">
+                <select name="academic" class="form-control" required>
                     <option>Select</option>
                     <option>Graduation</option>
                     <option>HSC</option>
@@ -83,7 +86,7 @@
 
             <div class="form-group">
                 <label for="lang">Languages Known</label>
-                <input type="text" class="form-control" id="lang" name="lang" placeholder="Languages Known">
+                <input type="text" class="form-control" id="lang" name="lang" placeholder="Languages Known" required>
             </div>
 
             <input type="button" name="password" class="next btn btn-info" value="Next"/>
@@ -95,35 +98,35 @@
             <h2> Step 2: Current</h2>
             <div class="form-group">
                 <label >Are you Currently Working?</label>
-                <input type="text" class="form-control" name="working" >
+                <input type="text" class="form-control" name="working"  required>
             </div>
             <div class="form-group">
                 <label >If Yes, please mention the name of organisation</label>
-                <input type="text" class="form-control" name="org" >
+                <input type="text" class="form-control" name="org" required >
             </div>
 
             <div class="form-group">
                 <label >Have you been a social worker before? </label>
-                <input type="text" class="form-control" name="before" >
+                <input type="text" class="form-control" name="before" required >
             </div>
 
             <div class="form-group">
                 <label >If Yes, please mention the name of organisation</label>
-                <input type="text" class="form-control" name="b_org" >
+                <input type="text" class="form-control" name="b_org" required >
             </div>
 
             <div class="form-group">
-                <label >Define Leadership.</label>
-                <textarea type="text" class="form-control" name="leadership" ></textarea>
+                <label >Define Leadership.(max word limit 400-500)</label>
+                <textarea type="text" class="form-control" name="leadership" required ></textarea>
             </div>
 
             <div class="form-group">
-                <label >Why do you want to be a Fellow?</label>
-                <textarea type="text" class="form-control" name="why_fellow" ></textarea>
+                <label >Why do you want to be a Fellow?(max word limit 400-500)</label>
+                <textarea type="text" class="form-control" name="why_fellow" required ></textarea>
             </div>
 
             <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
-            <input type="button" name="next" class="next btn btn-info" value="Next"/>
+            <input type="button" name="next" class="next btn btn-info" value="Next" required>
         </fieldset>
 
 
@@ -132,50 +135,51 @@
             <h2>Step 3: </h2>
 
             <div class="form-group">
-                <label for="address">Why do you think education is important?</label>
-                <textarea class="form-control" name="edu_imp" ></textarea>
+                <label for="address">Why do you think education is important?(max word limit 500-1000)</label>
+                <textarea class="form-control" name="edu_imp" required ></textarea>
             </div>
 
             <div class="form-group">
-                <label for="address">How can you change the perspective of a child who thinks education is worthless?</label>
-                <textarea class="form-control" name="edu_worth" ></textarea>
+                <label for="address">How can you change the perspective of a child who thinks education is worthless?(max word limit 200-500)</label>
+                <textarea class="form-control" name="edu_worth" required ></textarea>
             </div>
 
             <div class="form-group">
-                <label for="address">Explain how you are going to be empathetic with the kids who are divergent.</label>
-                <textarea class="form-control" name="empathetic" ></textarea>
+                <label for="address">Explain how you are going to be empathetic with the kids who are divergent.(max word limit 500)</label>
+                <textarea class="form-control" name="empathetic"  required></textarea>
             </div>
 
             <div class="form-group">
-                <label for="address">What are your strengths and weaknesses as a social worker?</label>
-                <textarea class="form-control" name="strengths" ></textarea>
+                <label for="address">What are your strengths and weaknesses as a social worker?(max word limit 200-500)</label>
+                <textarea class="form-control" name="strengths"  required></textarea>
             </div>
 
             <div class="form-group">
-                <label for="address">What motivates you to selflessly work for us without pay?</label>
-                <textarea class="form-control" name="motivates" ></textarea>
+                <label for="address">What motivates you to selflessly work for us without pay?(max word limit 500-1000)</label>
+                <textarea class="form-control" name="motivates"  required></textarea>
             </div>
 
             <div class="form-group">
-                <label for="address">How do you plan on building a healthy relationship with the students?</label>
-                <textarea class="form-control" name="healthy" ></textarea>
+                <label for="address">How do you plan on building a healthy relationship with the students?(max word limit 500-1000)</label>
+                <textarea class="form-control" name="healthy" required ></textarea>
             </div>
 
             <div class="form-group">
                 <label for="address">When can you start? (DD/MM/YYYY)</label>
-                <input class="form-control" name="healthy" >
+                <input class="form-control" name="start"  required>
             </div>
 
             <div class="form-group">
                 <label for="address">References:</label>
-                <input class="form-control" name="healthy" >
+                <input class="form-control" name="references"  required>
             </div>
 
             <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
             <input type="submit" name="submit" class="submit btn btn-success" value="Submit"/>
         </fieldset>
     </form>
-
+            </div>
+</div>
 </div>
 <script>
     $(document).ready(function(){

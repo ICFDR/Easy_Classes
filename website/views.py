@@ -3,7 +3,8 @@ from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs, BlogCitations,
-                     OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog,Fellowship,FellowSays,FellowshipImages
+                     OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog,Fellowship,FellowSays,FellowshipImages,
+FellowshipApplicationForm
                      )
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
@@ -162,8 +163,41 @@ def logout_request(request):
     logout(request)
     return redirect("fundraiser")
 
+
 def fellowship_application(request):
-    data={
+    data = {
         'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
-    return render(request, 'fellowship_application.html',data)
+
+    if request.method == "POST":
+        FellowshipApplicationForm(
+            full_name=request.POST.get('name'),
+            email=request.POST.get('email'),
+            mobile_no = request.POST.get('mob'),
+            sex = request.POST.get('sex'),
+            d_o_b = request.POST.get('date'),
+            city = request.POST.get('city'),
+            state = request.POST.get('state'),
+            permanent_address = request.POST.get('address'),
+            academic_qualification = request.POST.get('academic'),
+            language_known = request.POST.get('lang'),
+            are_you_currently_working = request.POST.get('working'),
+            if_yes_please_mention_the_organisations = request.POST.get('org'),
+            have_you_been_a_social_worker_before = request.POST.get('before'),
+            if_yes_please_mention_the_organisation = request.POST.get('b_org'),
+            define_leadership = request.POST.get('leadership'),
+            why_do_you_want_to_be_a_fellow = request.POST.get('why_fellow'),
+            why_do_you_think_education_is_important = request.POST.get('edu_imp'),
+            how_can_you_change_the_perspective_of_a_chld_who_think_educartion_is_worthless = request.POST.get('edu_worth'),
+            explain_how_you_are_going_to_be_empathetic_with_the_child_who_are_divergent = request.POST.get('empathetic'),
+            what_are_your_strength_and_weakness_as_a_social_worker = request.POST.get('strengths'),
+            what_motivates_you_to_selfilessly_work_for_us_without_pay = request.POST.get('motivates'),
+            how_do_you_plan_on_building_a_healthy_relationship_with_the_students = request.POST.get('healthy'),
+            when_you_start = request.POST.get('start'),
+            references = request.POST.get('references'),
+        ).save()
+
+        return render(request, 'thanks.html',data)
+    else:
+
+        return render(request, 'fellowship_application.html',data)
