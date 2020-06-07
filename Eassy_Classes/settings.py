@@ -28,7 +28,7 @@ SECRET_KEY = ')(rveqv+zvw9q(2hs#rc&7z7=yr+gxt8i)k7jnjr3&e+r8$@e#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eassyclasses.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['easy-classes.in','easy-classes.herokuapp.com','eassyclasses.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
