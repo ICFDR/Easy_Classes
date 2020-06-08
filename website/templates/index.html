@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<header>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for slider in Slider %}
+            {% if forloop.first %}
+            <li data-target="#carousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+            {% else %}
+            <li data-target="#carousel" data-slide-to="{{ forloop.counter0 }}"></li>
+            {% endif %}
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            {% for slider in Slider %}
+            {% if forloop.first %}
+            <div class="carousel-item active"
+                 style="background-image: url('{{ slider.image.url }}');background-size: 100% 100%;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">{{ slider.heading }}</h2>
+                    <p class="lead" style="text-align:right;">{{ slider.description }}</p>
+                </div>
+            </div>
+            {% else %}
+            <div class="carousel-item"
+                 style="background-image: url('{{ slider.image.url }}');background-size: 100% 100%;">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">{{ slider.heading }}</h2>
+                    <p class="lead" style="text-align:right;">{{ slider.description }}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
+<section id="donate" class="ftco-counter ftco-intro" id="section-counter">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-7 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 color-2 align-items-stretch">
+                    <div class="text">
+                        <h3 class="mb-4">Gift Education</h3>
+                        <p>We stand with those whom the world trod upon and forgot. Help us so that we may help them
+                            stand again.</p>
+                        <p><a target="_blank"
+                              href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC"
+                              class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+                    </div>
+                </div>
+            </div>
+            {% for join in JoinUs %}
+            <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18 color-3 align-items-stretch">
+                    <div class="text">
+                        <h3 class="mb-4">{{ join.heading }}</h3>
+                        <p>{{ join.description }}</p>
+                        <p><a target="_blank" href="http://icfdr.org/be-a-part/social-work-volunteer/"
+                              class="btn btn-white px-3 py-2 mt-2">{{ join.button_text }}</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="vision" class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-8 heading-section ftco-animate text-center">
+                <h2 class="mb-4">{{ Vision.0.heading }}</h2>
+                <p>{{ Vision.0.less }}</p>
+                <button type="button" class="btn btn-white px-3 py-2 mt-2" data-toggle="modal"
+                        data-target="#vision-more">See More
+                </button>
+            </div>
+        </div>
+        <div id="vision-more" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{ Vision.0.heading }}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ Vision.0.less }} {{ Vision.0.more }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            {% for vision in VisionIcons %}
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 d-flex services p-3 py-4 d-block">
+                    <div class="icon d-flex mb-3"><span class="{{ vision.icon }}"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading">{{ vision.icon_name }}</h3>
+                        <p>{{ vision.icon_description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="ftco-gallery">
+    <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Gallery</h2>
+        </div>
+    </div>
+    <div class="d-md-flex">
+        {% for obj in GalleryRow1 %}
+        <a href="{{ obj.image.url }}"
+           class="gallery image-popup d-flex justify-content-center align-items-center ftco-animate">
+            <img loading="lazy" src="{{ obj.image.url }}" class="img img-responsive" alt="{{ obj.image_alt_txt }}">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <span class="fas fa-search-plus"></span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="d-md-flex">
+        {% for obj in GalleryRow2 %}
+        <a href="{{ obj.image.url }}"
+           class="gallery image-popup d-flex justify-content-center align-items-center ftco-animate">
+            <img loading="lazy" src="{{ obj.image.url }}" class="img img-responsive" alt="{{ obj.image_alt_txt }}">
+            <div class="icon d-flex justify-content-center align-items-center">
+                <span class="fas fa-search-plus"></span>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="row justify-content-center pb-3 mt-5 mb-5">
+        <a href="{% url 'gallery' %}" type="button" class="btn btn-white px-3 py-2 mt-2">Checkout our collection of
+            pictures</a>
+    </div>
+</section>
+
+<section id="children" class="ftco-section bg-light">
+    <div class="container-fluid">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-8 heading-section ftco-animate text-center">
+                <h2 class="mb-4">{{ OurChildrensSection.0.heading }}</h2>
+                <p>{{ OurChildrensSection.0.description }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="carousel-cause owl-carousel">
+                    {% for child in OurChildrens %}
+                    <div class="item">
+                        <div data-toggle="modal" data-target="#Modal-Child-{{ child.id }}" class="cause-entry">
+                            <a class="img"
+                               style="background-image: url({{ child.image.url }});background-size: cover; height:450px;"></a>
+                            <div class="text p-3 p-md-4">
+                                <h3>{{ child.name }}</h3>
+                                <p class="text-justify">{{ child.description|truncatewords_html:20|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for child in OurChildrens %}
+    <div id="Modal-Child-{{ child.id }}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Children</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img loading="lazy" src="{{ child.image.url }}" class="img-responsive img-thumbnail"
+                         alt="{{ child.image_alt_text }}">
+                    <h4>{{ child.name }}</h4>
+                    {{ child.description }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<section id="blogs" class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h2 class="mb-4">{{ BlogSection.0.heading }}</h2>
+                <p>{{ BlogSection.0.description }}</p>
+            </div>
+        </div>
+        <div class="row d-flex">
+            {% for blog in Blogs %}
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <a href="blogs/{{ blog.slug }}" class="block-20"
+                       style="background-image: url('{{ blog.image.url }}');">
+                    </a>
+                    <div class="text p-4 d-block">
+                        <div class="meta mb-3">
+                            <div>{{ blog.pub_date }}</div>
+                            <div>{{ blog.author }}</div>
+                        </div>
+                        <h3 class="heading mt-3"><a href="blogs/{{ blog.slug }}">{{ blog.heading }}</a></h3>
+                        <p>{{ blog.content|truncatewords_html:20|safe }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+    <div class="container-fluid">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h2 class="mb-4">Our Causes</h2>
+                <p>We strive for upliftment of society on following issues:</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="carousel-cause owl-carousel">
+                {% for cause in OurCauses %}
+                <div data-toggle="modal" data-target="#Modal-Cause-{{ cause.id }}" class="d-flex ftco-animate">
+                    <div class="blog-entry align-self-stretch">
+                        <a href="#" class="block-20"
+                           style="background-image: url({{ cause.image.url }});background-size: cover; width:500px;">
+                        </a>
+                        <div class="text p-4 d-block">
+                            <h3 class="heading mb-4">{{ cause.heading }}</h3>
+                            <p class="text-justify">{{ cause.description|truncatewords_html:20|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% for cause in OurCauses %}
+    <div id="Modal-Cause-{{ cause.id }}" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Causes</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img loading="lazy" class="img-responsive img-thumbnail" src="{{ cause.image.url }}"
+                         alt="{{ cause.image_alt_text }}">
+                    <h4>{{ cause.heading }}</h4>
+                    {{ cause.description }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<section class="ftco-section-3 img" style="padding:0;text-align:center;">
+    <video style="height:90vh" muted controls data-play="hover">
+        <source src="{% static 'images/Easy Classes Overview.webm' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</section>
+{% endblock %}

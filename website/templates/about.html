@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<header class="masthead" style="width: 100vw;height: 100px;background: #252525;">
+</header>
+<section class="ftco-section pb-0 pt-5">
+	<div class="container">
+		<div class="row justify-content-center pb-3">
+		  <div class="col-md-7 heading-section ftco-animate text-center">
+			<h2 class="mb-4">{{ About.0.heading }}</h2>
+		  </div>
+		</div>
+		<div class="row pb-3">
+			<div class="row about-us">
+				{{ About.0.description|linebreaks }}
+			</div>
+		</div>
+	</div>
+</section>
+	<section class="ftco-section pb-0 pt-5">
+		<div class="container">
+			<div class="row justify-content-center pb-3">
+			  <div class="col-md-7 heading-section ftco-animate text-center">
+				<h2 class="mb-4">{{ AboutSWLP.0.heading }}</h2>
+			  </div>
+			</div>
+			<div class="row pb-3">
+				<div class="col-md-7">
+					<div class="row">
+						<p class="text-justify">{{ AboutSWLP.0.description }}</p>
+					</div>
+					<div class="row about-swlp">
+						<div class="col-md-6">
+							<ul style="list-style-type:none;">
+							{% for swlp in AboutSWLPIconsRow1 %}
+								<li><span class="{{ swlp.icon }} mr-2"></span>{{ swlp.icon_text }}</li>
+							{% endfor %}
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul style="list-style-type:none;">
+							{% for swlp in AboutSWLPIconsRow2 %}
+								<li><span class="{{ swlp.icon }} mr-2"></span>{{ swlp.icon_text }}</li>
+							{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<img src="{{ AboutSWLP.0.image.url }}" class="img-responsive img-thumbnail" alt="{{ AboutSWLP.0.image_alt_text }}">
+				</div>
+				<div class="row">
+					<p class="text-justify">{{ AboutSWLP.0.image_description }}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="board" class="ftco-section bg-light">
+    	<div class="container-fluid">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-8 heading-section ftco-animate text-center">
+            <h2 class="mb-4">What our Leaders say</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="carousel-cause owl-carousel">
+					{% for member in LeaderSays %}
+	    				<div class="item">
+	    					<div data-toggle="modal" data-target="#Modal-Leader-{{ member.id }}" class="cause-entry">
+		    					<a class="img" style="background-image: url({{ member.image.url }});background-size: cover;"></a>
+		    					<div class="text p-3 p-md-4">
+		    						<h5>{{ member.name }}</h5>
+									{{ member.about|slice:":100" }}...
+		    					</div>
+		    				</div>
+	    				</div>
+					{% endfor %}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+		{% for member in LeaderSays %}
+		<div id="Modal-Leader-{{ member.id }}" class="modal fade" role="dialog">
+		  <div class="modal-dialog modal-lg">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h4 class="modal-title">Our Leaders</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			  <div class="modal-body p-4">
+				<img loading="lazy" class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="{{ member.image_alt_text }}">
+				<h4>{{ member.name }}</h4>
+				{{ member.about }}
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+		{% endfor %}
+    </section>
+	
+	<section id="board" class="ftco-section bg-light">
+    	<div class="container-fluid">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-8 heading-section ftco-animate text-center">
+            <h2 class="mb-4">Organizing Team</h2>
+			<p>We are team of high potential professionals, college goers committed to change the society, who saw what was happening and decided they can’t just watch from the side-lines. We all come from different walks of life, follow different career paths but the one thing that brings us together and drives us to move forward is our passion for helping these kids and doing the best we can to give them a chance to show the world what they are made of. More than just sticks and bones for sure, we assure you.</p>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="carousel-members owl-carousel">
+					{% for member in OrganizingTeam %}
+	    				<div class="item">
+	    					<div class="cause-entry">
+		    					<a {% if member.url %} href="{{ member.url }}" {% endif %} target="_blank" class="img" style="background-image: url({{ member.image.url }});background-size: cover; height:200px;"></a>
+		    					<div class="text p-3 p-md-4">
+		    						<h5><a>{{ member.name }}</a></h5>
+		    						<h6>{{ member.role }}</h6>
+		    					</div>
+		    				</div>
+	    				</div>
+					{% endfor %}
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+	
+	<section id="board" class="ftco-section bg-light">
+    	<div class="container-fluid">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-8 heading-section ftco-animate text-center">
+					<h2 class="mb-4">Board Team</h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					{% for member in BoardTeam %}
+					<div class="col-md-3 ftco-animate">
+							<div data-toggle="modal" data-target="#Modal-Board-{{ member.id }}" style="text-align:center;" class="item p-3">
+								<img src="{{ member.image.url }}" style="height: 200px;width:200px;border-radius:360px;"></img>
+								<div class="text p-2 p-md-2" style="text-align:center;width: 100%;">
+									<h5 class="mb-0">{{ member.name }}</h5>
+									<small>{{ member.role }}</small>
+								</div>
+							</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+    	</div>
+		{% for member in BoardTeam %}
+		<div id="Modal-Board-{{ member.id }}" class="modal fade" role="dialog">
+		  <div class="modal-dialog modal-lg">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h4 class="modal-title">Board Member</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			  <div class="modal-body p-4">
+				<img loading="lazy" class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="{{ member.image_alt_text }}">
+				<h4>{{ member.name }}</h4>
+				<h6>{{ member.role }}</h6>
+				{{ member.description }}
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+		{% endfor %}
+    </section>
+{% endblock %}

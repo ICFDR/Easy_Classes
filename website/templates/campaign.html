@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="masthead"
+        style="height: 50vh;min-height: 450px;background-image: url('{{ campaign.image.url }}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+        <div class="col-md-7  text-center ">
+            <p style="font-size: 300%;color:white;"><strong>{{ campaign.text_on_image }}</strong></p>
+
+
+        </div>
+    </div>
+</header>
+
+<div class="container text-center text-dark">
+    <br>
+    {{ campaign.description | safe }}
+    <a target="_blank" href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC"
+       class="btn btn-success  " style="font-size:130%;border-radius: 8px;">Donate for<br>{{ campaign.button_text }}</a>
+    <br><br><br>
+</div>
+
+<img src="{{blog.image.url}" alt="" height="40%" width="140%">
+
+
+<div class="container">
+    {% for blog in blog %}
+
+    {% if forloop.counter|divisibleby:2 %}
+
+    <div class="card text-white " style="border:none;" data-aos="fade-right">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <br>
+                    {{blog.content | safe}}
+                </div>
+                <div class="col-lg-6" style="box-shadow: 10px 10px 5px grey;padding:0px;">
+                    <img src="{{blog.image.url}}" alt="" height="100%" width="100%" style="border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% else %}
+
+    <div class="card text-white " style="border:none;" data-aos="fade-left">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6" style="box-shadow: 10px 10px 5px grey;padding:0px;">
+                    <img src="{{blog.image.url}}" alt="" height="100%" width="100%" style="border-radius: 8px;">
+
+                </div>
+                <div class="col-lg-6">
+                    <br>
+                    {{blog.content | safe}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+{% endblock %}
