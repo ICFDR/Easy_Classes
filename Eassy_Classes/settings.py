@@ -26,9 +26,9 @@ MEDIA_URL = "/media/"
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['easyclasses.icfdr.org','easy-classes.in','www.easy-classes.in']
+ALLOWED_HOSTS = ['easy-classes.herokuapp.com','easyclasses.icfdr.org','easy-classes.in','www.easy-classes.in']
 
 
 # Application definition
