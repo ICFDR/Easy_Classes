@@ -25,165 +25,187 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-    <form id="regiration_form" method="post" action="{% url 'form' %}">
-        {% csrf_token %}
-        <fieldset>
-            <h2>Step 1: Personal informataion</h2>
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-            </div>
+            <form id="regiration_form" method="post" action="{% url 'form' %}" name="form"
+                  onsubmit="return validateForm()">
+                {% csrf_token %}
+                <fieldset>
+                    <h2>Step 1: Personal informataion</h2>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        <span id="n" style="color:red;"></span>
+                    </div>
 
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-            </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <span id="e" style="color:red;"></span>
+                    </div>
 
-            <div class="form-group">
-                <label for="mob">Mobile Number</label>
-                <input type="text" class="form-control" name="mob" placeholder="Mobile Number" required>
-            </div>
+                    <div class="form-group">
+                        <label for="mob">Mobile Number</label>
+                        <input type="text" class="form-control" name="mob" id="mob" placeholder="Mobile Number"
+                               required>
+                        <span id="m" style="color:red;"></span>
+                    </div>
 
-            <div class="form-group">
-                <label for="name">Sex</label>
-                <select name="sex" class="form-control">
-                    <option>Select</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>other</option>
-                </select>
-            </div>
+                    <div class="form-group">
+                        <label for="name">Sex</label>
+                        <select name="sex" class="form-control">
+                            <option>Select</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>other</option>
+                        </select>
+                    </div>
 
-            <div class="form-group"> <!-- Date input -->
-                <label class="control-label" for="date">Date of Birth:</label>
-                <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text" required>
-            </div>
+                    <div class="form-group"> <!-- Date input -->
+                        <label class="control-label" for="date">Date of Birth:</label>
+                        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="text" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="City">City/Town (Currently residing)</label>
-                <input type="text" class="form-control" id="City" name="city" placeholder="City/Town" required>
-            </div>
+                    <div class="form-group">
+                        <label for="City">City/Town (Currently residing)</label>
+                        <input type="text" class="form-control" id="City" name="city" placeholder="City/Town" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="State">State</label>
-                <input type="text" class="form-control" id="State" name="state" placeholder="State" required>
-            </div>
+                    <div class="form-group">
+                        <label for="State">State</label>
+                        <input type="text" class="form-control" id="State" name="state" placeholder="State" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="Address">Permanent Address</label>
-                <textarea type="text" class="form-control" id="Address" name="address" placeholder="Permanent Address" required></textarea>
-            </div>
+                    <div class="form-group">
+                        <label for="Address">Permanent Address</label>
+                        <textarea type="text" class="form-control" id="Address" name="address"
+                                  placeholder="Permanent Address" required></textarea>
+                    </div>
 
-            <div class="form-group">
-                <label for="name">Academic Qualifications</label>
-                <select name="academic" class="form-control" required>
-                    <option>Select</option>
-                    <option>Graduation</option>
-                    <option>HSC</option>
-                    <option>SSC</option>
-                </select>
-            </div>
+                    <div class="form-group">
+                        <label for="name">Academic Qualifications</label>
+                        <select name="academic" class="form-control" required>
+                            <option>Select</option>
+                            <option>Graduation</option>
+                            <option>HSC</option>
+                            <option>SSC</option>
+                        </select>
+                    </div>
 
-            <div class="form-group">
-                <label for="lang">Languages Known</label>
-                <input type="text" class="form-control" id="lang" name="lang" placeholder="Languages Known" required>
-            </div>
+                    <div class="form-group">
+                        <label for="lang">Languages Known</label>
+                        <input type="text" class="form-control" id="lang" name="lang" placeholder="Languages Known"
+                               required>
+                    </div>
 
-            <input type="button" name="password" class="next btn btn-info" value="Next"/>
-        </fieldset>
-
-
-
-        <fieldset>
-            <h2> Step 2: Current</h2>
-            <div class="form-group">
-                <label >Are you Currently Working?</label>
-                <input type="text" class="form-control" name="working"  required>
-            </div>
-            <div class="form-group">
-                <label >If Yes, please mention the name of organisation</label>
-                <input type="text" class="form-control" name="org" required >
-            </div>
-
-            <div class="form-group">
-                <label >Have you been a social worker before? </label>
-                <input type="text" class="form-control" name="before" required >
-            </div>
-
-            <div class="form-group">
-                <label >If Yes, please mention the name of organisation</label>
-                <input type="text" class="form-control" name="b_org" required >
-            </div>
-
-            <div class="form-group">
-                <label >Define Leadership.(max word limit 400-500)</label>
-                <textarea type="text" class="form-control" name="leadership" required ></textarea>
-            </div>
-
-            <div class="form-group">
-                <label >Why do you want to be a Fellow?(max word limit 400-500)</label>
-                <textarea type="text" class="form-control" name="why_fellow" required ></textarea>
-            </div>
-
-            <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
-            <input type="button" name="next" class="next btn btn-info" value="Next" required>
-        </fieldset>
+                    <input type="button" name="password" class="next btn btn-info" value="Next" id="b1">
+                </fieldset>
 
 
+                <fieldset>
+                    <h2> Step 2: Current</h2>
+                    <div class="form-group">
+                        <label>Are you Currently Working?</label>
+                        <input type="text" class="form-control" name="working" required>
+                    </div>
+                    <div class="form-group">
+                        <label>If Yes, please mention the name of organisation</label>
+                        <input type="text" class="form-control" name="org" required>
+                    </div>
 
-        <fieldset>
-            <h2>Step 3: </h2>
+                    <div class="form-group">
+                        <label>Have you been a social worker before? </label>
+                        <input type="text" class="form-control" name="before" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="address">Why do you think education is important?(max word limit 500-1000)</label>
-                <textarea class="form-control" name="edu_imp" required ></textarea>
-            </div>
+                    <div class="form-group">
+                        <label>If Yes, please mention the name of organisation</label>
+                        <input type="text" class="form-control" name="b_org" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="address">How can you change the perspective of a child who thinks education is worthless?(max word limit 200-500)</label>
-                <textarea class="form-control" name="edu_worth" required ></textarea>
-            </div>
+                    <div class="form-group">
+                        <label>Define Leadership.(word limit 400-500)</label>
+                        <textarea type="text" class="form-control" name="leadership" id="leadership"
+                                  required></textarea>
+                        <span id="l" style="color:red;"></span>
+                    </div>
 
-            <div class="form-group">
-                <label for="address">Explain how you are going to be empathetic with the kids who are divergent.(max word limit 500)</label>
-                <textarea class="form-control" name="empathetic"  required></textarea>
-            </div>
+                    <div class="form-group">
+                        <label>Why do you want to be a Fellow?( word limit 400-500)</label>
+                        <textarea type="text" class="form-control" name="why_fellow" id="why_fellow" required></textarea>
+                        <span id="f" style="color:red;"></span>
+                    </div>
+<!--                    <button onclick="validateForm()">validate</button>-->
+                    <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
+                    <input type="button" name="next" class="next btn btn-info" value="Next" required>
+                </fieldset>
 
-            <div class="form-group">
-                <label for="address">What are your strengths and weaknesses as a social worker?(max word limit 200-500)</label>
-                <textarea class="form-control" name="strengths"  required></textarea>
-            </div>
 
-            <div class="form-group">
-                <label for="address">What motivates you to selflessly work for us without pay?(max word limit 500-1000)</label>
-                <textarea class="form-control" name="motivates"  required></textarea>
-            </div>
+                <fieldset>
+                    <h2>Step 3: </h2>
 
-            <div class="form-group">
-                <label for="address">How do you plan on building a healthy relationship with the students?(max word limit 500-1000)</label>
-                <textarea class="form-control" name="healthy" required ></textarea>
-            </div>
+                    <div class="form-group">
+                        <label for="address">Why do you think education is important?( word limit 500-1000)</label>
+                        <textarea class="form-control" name="edu_imp" id="edu_imp" required></textarea>
+                        <span id="ed" style="color:red;"></span>
+                    </div>
 
-            <div class="form-group">
-                <label for="address">When can you start? (DD/MM/YYYY)</label>
-                <input class="form-control" name="start"  required>
-            </div>
+                    <div class="form-group">
+                        <label for="address">How can you change the perspective of a child who thinks education is
+                            worthless?( word limit 200-500)</label>
+                        <textarea class="form-control" name="edu_worth" id="edu_worth" required></textarea>
+                        <span id="w" style="color:red;"></span>
+                    </div>
 
-            <div class="form-group">
-                <label for="address">References:</label>
-                <input class="form-control" name="references"  required>
-            </div>
+                    <div class="form-group">
+                        <label for="address">Explain how you are going to be empathetic with the kids who are
+                            divergent.( word limit 500)</label>
+                        <textarea class="form-control" name="empathetic" id="empathetic" required></textarea>
+                        <span id="emp" style="color:red;"></span>
+                    </div>
 
-            <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
-            <input type="submit" name="submit" class="submit btn btn-success" value="Submit"/>
-        </fieldset>
-    </form>
-            </div>
-</div>
+                    <div class="form-group">
+                        <label for="address">What are your strengths and weaknesses as a social worker?( word limit
+                            200-500)</label>
+                        <textarea class="form-control" name="strengths" id="strengths" required></textarea>
+                        <span id="st" style="color:red;"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">What motivates you to selflessly work for us without pay?( word limit
+                            500-1000)</label>
+                        <textarea class="form-control" name="motivates" id="motivates" required></textarea>
+                        <span id="motivate" style="color:red;"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">How do you plan on building a healthy relationship with the students?(
+                            word limit 500-1000)</label>
+                        <textarea class="form-control" name="healthy" id="healthy" required></textarea>
+                        <span id="health" style="color:red;"></span>
+                    </div>
+
+                    <div class="form-group"> <!-- Date input -->
+                        <label class="control-label" for="date">When can you start? (DD/MM/YYYY)</label>
+                        <input class="form-control" id="date1" name="start" placeholder="DD/MM/YYY" type="text"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">References:</label>
+                        <input class="form-control" name="references" required>
+                    </div>
+<!--                    <button onclick="validateForm()">validate</button>-->
+                    <input type="button" name="previous" class="previous btn btn-default" value="Previous"/>
+                    <input type="submit" name="submit" class="submit btn btn-success" value="Submit">
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </div>
 <script>
     $(document).ready(function(){
       var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var s_date_input=$('input[name="start"]'); //our date input has the name "date"
+
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       var options={
         format: 'dd/mm/yyyy',
@@ -192,7 +214,169 @@
         autoclose: true,
       };
       date_input.datepicker(options);
-    })
+      s_date_input.datepicker(options);
+    });
+
+</script>
+<script>
+    function validateForm(){
+    lead = document.getElementById("leadership").value;
+    lead = lead.replace(/(^\s*)|(\s*$)/gi,"");
+    lead = lead.replace(/[ ]{2,}/gi," ");
+    lead = lead.replace(/\n /,"\n");
+
+    fellow = document.getElementById("why_fellow").value;
+    fellow = fellow.replace(/(^\s*)|(\s*$)/gi,"");
+    fellow = fellow.replace(/[ ]{2,}/gi," ");
+    fellow = fellow.replace(/\n /,"\n");
+
+    edu_imp = document.getElementById("edu_imp").value;
+    edu_imp = edu_imp.replace(/(^\s*)|(\s*$)/gi,"");
+    edu_imp = edu_imp.replace(/[ ]{2,}/gi," ");
+    edu_imp = edu_imp.replace(/\n /,"\n");
+
+    edu_worth = document.getElementById("edu_worth").value;
+    edu_worth = edu_worth.replace(/(^\s*)|(\s*$)/gi,"");
+    edu_worth = edu_worth.replace(/[ ]{2,}/gi," ");
+    edu_worth = edu_worth.replace(/\n /,"\n");
+
+    empathetic = document.getElementById("empathetic").value;
+    empathetic = empathetic.replace(/(^\s*)|(\s*$)/gi,"");
+    empathetic = empathetic.replace(/[ ]{2,}/gi," ");
+    empathetic = empathetic.replace(/\n /,"\n");
+
+    strengths = document.getElementById("strengths").value;
+    strengths = strengths.replace(/(^\s*)|(\s*$)/gi,"");
+    strengths = strengths.replace(/[ ]{2,}/gi," ");
+    strengths = strengths.replace(/\n /,"\n");
+
+    motivates = document.getElementById("motivates").value;
+    motivates = motivates.replace(/(^\s*)|(\s*$)/gi,"");
+    motivates = motivates.replace(/[ ]{2,}/gi," ");
+    motivates = motivates.replace(/\n /,"\n");
+
+    healthy = document.getElementById("healthy").value;
+    healthy = healthy.replace(/(^\s*)|(\s*$)/gi,"");
+    healthy = healthy.replace(/[ ]{2,}/gi," ");
+    healthy = healthy.replace(/\n /,"\n");
+
+
+
+    console.log(lead);
+    console.log(lead.split(' ').length);
+    if(lead.split(' ').length>=400 && lead.split(' ').length<=500){
+
+        document.getElementById("l").innerHTML="";
+
+        if(fellow.split(' ').length>=400 && fellow.split(' ').length<=500){
+            document.getElementById("f").innerHTML="";
+
+            if(edu_imp.split(' ').length>=500 && edu_imp.split(' ').length<=1000){
+            document.getElementById("ed").innerHTML="";
+
+            	if(edu_worth.split(' ').length>=200 && edu_worth.split(' ').length<=500){
+            		document.getElementById("w").innerHTML="";
+
+                    if(empathetic.split(' ').length>=0 && empathetic.split(' ').length<=500){
+                        document.getElementById("emp").innerHTML="";
+
+                        if(strengths.split(' ').length>=200 && strengths.split(' ').length<=500){
+                            document.getElementById("st").innerHTML="";
+
+                            if(motivates.split(' ').length>=500 && motivates.split(' ').length<=1000){
+                                document.getElementById("motivate").innerHTML="";
+
+                                if(healthy.split(' ').length>=500 && healthy.split(' ').length<=1000){
+                                    document.getElementById("health").innerHTML="";
+
+                                }
+                                else{
+                                    document.getElementById("health").innerHTML="word limit 400-500";
+                                    alert("How do you plan on building a healthy relationship with the students?(word limit 500-1000)");
+                                    return false;
+                                }
+
+                            }
+                            else{
+                                document.getElementById("motivate").innerHTML="word limit 400-500";
+                                alert("What motivates you to selflessly work for us without pay?( word limit 500-1000)");
+                                return false;
+                            }
+
+                        }
+                        else{
+                            document.getElementById("st").innerHTML="word limit 400-500";
+                            alert("What are your strengths and weaknesses as a social worker?( word limit 200-500");
+                            return false;
+                        }
+
+                    }
+                    else{
+                        document.getElementById("emp").innerHTML="word limit 400-500";
+                        alert("Explain how you are going to be empathetic with the kids who are divergent.( word limit 500)");
+                        return false;
+                    }
+
+        		}
+		        else{
+		            document.getElementById("w").innerHTML="word limit 400-500";
+		            alert("How can you change the perspective of a child who thinks education is worthless?(word limit 200-500)");
+		            return false;
+		        }
+
+        	}
+	        else{
+	            document.getElementById("ed").innerHTML="word limit 400-500";
+	            alert("Why do you think education is important? word limit 400-500");
+	            return false;
+	        }
+
+        }
+        else{
+            document.getElementById("f").innerHTML="word limit 400-500";
+            alert("Why do you want to be a Fellow? word limit 400-500");
+            return false;
+        }
+
+    }
+    else{
+        document.getElementById("l").innerHTML="word limit 400-500";
+        alert("Define Leadership word limit 400-500");
+        return false;
+    }
+
+
+    }
+
+
+<!--    function validateForm1(){-->
+<!--    var name = document.getElementById("name");-->
+<!--    var email = document.getElementById("email");-->
+<!--    var mob = document.getElementById("mob");-->
+
+
+<!--    if(!name.checkValidity()){-->
+<!--    document.getElementById("n").innerHTML = name.validationMessage;-->
+<!--    }-->
+<!--    else{-->
+<!--    document.getElementById("n").innerHTML = "";-->
+<!--    }-->
+<!--    if(!email.checkValidity()){-->
+<!--    document.getElementById("e").innerHTML = name.validationMessage;-->
+<!--    }-->
+<!--    else{-->
+<!--    document.getElementById("e").innerHTML = "";-->
+<!--    }-->
+<!--    if(!mob.checkValidity()){-->
+<!--    document.getElementById("m").innerHTML = name.validationMessage;-->
+<!--    }-->
+<!--    else{-->
+<!--    document.getElementById("m").innerHTML = "";-->
+<!--    }-->
+
+
+<!--    }-->
+
 
 </script>
 
