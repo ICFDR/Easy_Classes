@@ -11,4 +11,4 @@
 Informative website for [ICFDR](http://icfdr.org/)'s Easy Classes Initiative.
 
 ### Contributors
-[pagalprogrammer](https://pagalprogrammer.dev) | [Sarthak](https://svkumar.me) | [Nagendra](https://github.com/Nagendracse1)
+[pagalprogrammer](https://pagalprogrammer.dev) | [Sarthak](https://svkumar.me) | [Nagendra](https://nagendrak.herokuapp.com)
