@@ -29,7 +29,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">ICFDR</a>
+        <a class="navbar-brand" style="text-transform:none;" href="{% url 'home' %}">Easy Classes by iCFDR</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -63,11 +63,10 @@
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Contact Us</h2>
                     <p style="text-align:left;">
-                        <span class="fas fa-map-marker-alt mr-3"></span>L-11, Lower Ground Floor, Malviya nagar, New
-                        Delhi - 110017<br>
+                        <span class="fas fa-map-marker-alt mr-3"></span>B-11, LGF, 218-219, Civil Lines, Bareilly - 243001<br>
                         <a href="tel:+91-90586-22955"><span class="fas fa-phone mr-3"></span>+91 90589 22955<br></a>
                         <a href="mailto:supportus@icfdr.org?Subject=ICFDR%20Easy%20Classes%20-%20Support"><span
-                                class="fas fa-envelope mr-3"></span>supportus@icfdr.org</a>
+                                class="fas fa-envelope mr-3"></span>reachus@icfdr.org </a>
                     </p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a target="_blank" href="https://twitter.com/ICFDR"><span
@@ -81,15 +80,15 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="ftco-footer-widget mb-4 ml-md-4">
-                    <h2 class="ftco-heading-2">Annual Progress Reports</h2>
+                    <h2 class="ftco-heading-2">iCFDR Other Initiatives</h2>
                     <ul class="list-unstyled">
-                        <li><a target="_blank" href="https://drive.google.com/open?id=12yJyWt_e4_VxAgtFSAQAEEdrDGSlUoW9" class="py-2 d-block">2016 - 17</a>
+                        <li><a target="_blank" href="http://icfdr.org" class="py-2 d-block">Social Work Leadership Program</a>
                         </li>
-                        <li><a target="_blank" href="https://drive.google.com/open?id=1tYPb_o-QClXzCFxPPeCs-ca7Lnde7Ln2" class="py-2 d-block">2017 - 18</a>
+                        <li><a target="_blank" href="http://icfdr.org" class="py-2 d-block">VIN AWARDS</a>
                         </li>
-                        <li><a target="_blank" href="https://drive.google.com/open?id=1mGkgc0wgI1T13B1gySD5iHLUhTBXvLLp" class="py-2 d-block">2018 - 19</a>
+                        <li><a target="_blank" href="http://icfdr.org" class="py-2 d-block">Design your own Campaign</a>
                         </li>
                     </ul>
                 </div>
@@ -98,14 +97,16 @@
                 <div class="ftco-footer-widget mb-4 ml-md-4">
                     <h2 class="ftco-heading-2">Current Campaigns</h2>
                     <ul class="list-unstyled">
-                        {% for campaign in campaigns %}
-                        <li><a href="{% url 'campaign' campaign.slug %}"
-                               class="py-2 d-block">{{campaign.compaign_name}}</a></li>
-                        {% endfor %}
+                      <li><a target="_blank" href="http://icfdr.org" class="py-2 d-block">Covid19 Relief Work</a>
+                      </li>
+                      <li><a target="_blank" href="http://icfdr.org" class="py-2 d-block">Domestic Violence Research</a>
+                      </li>
+                      <li><a target="_blank" href="http://icfdr.org/empowerment-human-rights/" class="py-2 d-block">Legal Aid and Empowerment</a>
+                      </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Special</h2>
                     <div class="block-23 mb-3">
@@ -113,6 +114,9 @@
                             <li><p><a target="_blank"
                                       href="https://www.payumoney.com/paybypayumoney/#/DFE2878E860D57AF8E18DFEF38EBE7EC"
                                       class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p></li>
+                            <li><a target="_blank" href="http://icfdr.org/frequently-asked-questions-social-work/"><span
+                                    class="fas fa-question mr-2"></span><span
+                                    class="text">FAQs</span></a></li>
                             <li><a target="_blank" href="http://icfdr.org/corporate-social-responsibility/"><span
                                     class="fas fa-link mr-2"></span><span
                                     class="text">Corporate Social Responsibility</span></a></li>

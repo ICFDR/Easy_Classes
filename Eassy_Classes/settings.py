@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['easy-classes.herokuapp.com','easyclasses.icfdr.org','easy-classes.in','www.easy-classes.in']
+ALLOWED_HOSTS = ['easy-classes.herokuapp.com','easyclasses.icfdr.org']
 
 
 # Application definition

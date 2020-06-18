@@ -31,8 +31,7 @@ class Slider(models.Model):
 
 class Vision(models.Model):
     heading = models.CharField(max_length=100)
-    less = models.TextField(default='')
-    more = models.TextField(default='')
+    description = models.TextField(default='')
 
     class Meta:
         verbose_name_plural = 'Vision'
@@ -107,7 +106,6 @@ class AboutSWLPIcons(models.Model):
 class JoinUs(models.Model):
     heading = models.CharField(max_length=100)
     description = models.TextField()
-    button_text = models.CharField(max_length=50)
 
     class Meta:
         verbose_name_plural = 'Join Us'

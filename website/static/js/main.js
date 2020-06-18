@@ -30,7 +30,7 @@
 
 	// loader
 	var loader = function() {
-		setTimeout(function() { 
+		setTimeout(function() {
 			if($('#ftco-loader').length > 0) {
 				$('#ftco-loader').removeClass('show');
 			}
@@ -69,7 +69,7 @@
 
 	};
 	carousel();
-	
+
 	var membersCarousel = function() {
 		$('.carousel-members').owlCarousel({
 			autoplay: true,
@@ -133,21 +133,21 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
 				}
-			} 
+			}
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
-					document.getElementsByClassName('navbar-brand')[0].innerHTML = "ICFDR";
+					document.getElementsByClassName('navbar-brand')[0].innerHTML = "Easy Classes by iCFDR";
 				}
-			} 
+			}
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
-					navbar.addClass('awake');	
+					navbar.addClass('awake');
 					document.getElementsByClassName('navbar-brand')[0].innerHTML = '<img src="/media/favicon.webp" width="80px"/>';
 				}
-				
+
 				if(sd.length > 0) {
 					sd.addClass('sleep');
 				}
@@ -186,9 +186,9 @@
 		}
 	};
 
-	
+
 	var counter = function() {
-		
+
 		$('#section-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
@@ -205,7 +205,7 @@
 					  }, 7000
 					);
 				});
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -218,7 +218,7 @@
 		$('.ftco-animate').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
-				
+
 				i++;
 
 				$(this.element).addClass('item-animate');
@@ -240,9 +240,9 @@
 							el.removeClass('item-animate');
 						},  k * 50, 'easeInOutExpo' );
 					});
-					
+
 				}, 100);
-				
+
 			}
 
 		} , { offset: '95%' } );
@@ -318,4 +318,3 @@
 
 
 })(jQuery);
-
