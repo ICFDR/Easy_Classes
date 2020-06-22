@@ -20,12 +20,6 @@
             </div>
             <div class="mt-5 blog-content">
                 {{ blog.content|linebreaks }}
-                <div class="mt-2 cites">
-                    Citations:
-                    {% for cite in cites %}
-                    <a href="{{ cite }}">{{ cite }}</a>
-                    {% endfor %}
-                </div>
             </div>
         </div>
     </div>

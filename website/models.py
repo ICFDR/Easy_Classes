@@ -43,7 +43,6 @@ class Vision(models.Model):
 class VisionIcons(models.Model):
     icon = models.CharField(max_length=30)
     icon_name = models.CharField(max_length=50)
-    icon_description = models.TextField()
     section = models.ForeignKey(Vision, on_delete=models.CASCADE)
 
     class Meta:
@@ -144,7 +143,6 @@ class BoardTeam(models.Model):
     image_alt_txt = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=50)
     role = models.CharField(max_length=50)
-    description = models.TextField()
 
     class Meta:
         verbose_name_plural = 'Board Team'

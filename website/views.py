@@ -12,12 +12,8 @@ def index(request, moveToBlogs=None):
         'Slider': Slider.objects.all(),
         'Vision': Vision.objects.all(),
         'VisionIcons': VisionIcons.objects.all(),
-        'GalleryRow1': Gallery.objects.all()[:4],
-        'GalleryRow2': Gallery.objects.all()[4:8],
         'OurCauses': OurCauses.objects.all(),
         'JoinUs': JoinUs.objects.all(),
-        'OurChildrensSection': OurChildrensSection.objects.all(),
-        'OurChildrens': OurChildrens.objects.all(),
         'BlogSection': BlogSection.objects.all(),
         'Blogs': Blogs.objects.all().order_by('-id')[:3],
         'campaigns': Campaign.objects.all().order_by('-id')[:5],
@@ -47,12 +43,16 @@ def bloglist(request):
     return render(request, 'bloglist.html', data)
 
 
-def gallery(request):
+def children(request):
     data = {
+        'GalleryRow1': Gallery.objects.all()[:4],
+        'GalleryRow2': Gallery.objects.all()[4:8],
+        'OurChildrensSection': OurChildrensSection.objects.all(),
+        'OurChildrens': OurChildrens.objects.all(),
         'Gallery': Gallery.objects.all(),
         'campaigns': Campaign.objects.all().order_by('-id')[:5]
     }
-    return render(request, 'gallery.html', data)
+    return render(request, 'children.html', data)
 
 
 def about(request):
