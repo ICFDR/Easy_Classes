@@ -3,7 +3,7 @@ from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
                      OurChildrens, OrganizingTeam, BlogSection, Blogs,
-                     OurChildrensSection, BlogCitations, AboutUs, Campaign, CampaignBlog, Donate,
+                     OurChildrensSection, AboutUs, Campaign, CampaignBlog,
                      Fellowship, FellowSays, FellowshipImages,
                      )
 
@@ -38,19 +38,6 @@ admin.site.register(OurChildrensSection)
 admin.site.register(OurChildrens)
 
 admin.site.register(BlogSection)
-
-admin.site.register(Donate)
-
-
-class InlineCitations(admin.StackedInline):
-    model = BlogCitations
-    extra = 1
-
-
-@admin.register(Blogs)
-class BlogsAdmin(admin.ModelAdmin):
-    inlines = [InlineCitations, ]
-
 
 class InlineCitations(admin.StackedInline):
     model = CampaignBlog

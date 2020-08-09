@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
-                     OurChildrens, OrganizingTeam, BlogSection, Blogs, BlogCitations,
-                     OurChildrensSection, AboutUs, Campaign, Donate, CampaignBlog,Fellowship,FellowSays,FellowshipImages
+                     OurChildrens, OrganizingTeam, BlogSection, Blogs,
+                     OurChildrensSection, AboutUs, Campaign, CampaignBlog,Fellowship,FellowSays,FellowshipImages
                      )
 
 
@@ -23,10 +23,9 @@ def index(request, moveToBlogs=None):
 
 def blog_view(request, slug=None):
     blog = Blogs.objects.filter(slug=slug)
-    blogCitations = BlogCitations.objects.filter(blog=blog[0])
 
     if blog:
-        data = {'blog': blog[0], 'cites': blogCitations,
+        data = {'blog': blog[0],
                 'campaigns': Campaign.objects.all().order_by('-id')[:5], }
 
         return render(request, 'blog.html', data)
@@ -93,7 +92,6 @@ def campaignlist(request):
 
 def donate(request):
     data = {
-        'donate': Donate.objects.all()[0],
         'campaigns': Campaign.objects.all().order_by('-id')[:5],
     }
     return render(request, 'donate.html', data)

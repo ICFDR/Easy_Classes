@@ -105,6 +105,7 @@ class AboutSWLPIcons(models.Model):
 class JoinUs(models.Model):
     heading = models.CharField(max_length=100)
     description = models.TextField()
+    button_text = models.CharField(max_length=50, blank=True)
 
     class Meta:
         verbose_name_plural = 'Join Us'
@@ -217,18 +218,6 @@ class Blogs(models.Model):
     def __str__(self):
         return self.heading
 
-
-class BlogCitations(models.Model):
-    url = models.URLField()
-    blog = models.ForeignKey(to=Blogs, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.url
-
-    class Meta:
-        verbose_name_plural = 'BlogCitations'
-
-
 class Campaign(models.Model):
     compaign_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='images/campaign/')
@@ -257,13 +246,6 @@ class CampaignBlog(models.Model):
 
     class Meta:
         verbose_name_plural = 'CampaignBlog'
-
-
-class Donate(models.Model):
-    image = models.ImageField(upload_to='images/donate/')
-
-    bank_info = RichTextField()
-
 
 class Fellowship(models.Model):
     header_image = models.ImageField(upload_to='images/fellowship/header/')
