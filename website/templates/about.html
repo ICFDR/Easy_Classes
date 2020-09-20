@@ -134,50 +134,52 @@
     	</div>
     </section>
 
-	<section id="board" class="ftco-section bg-light">
-    	<div class="container-fluid">
-			<div class="row justify-content-center mb-5 pb-3">
-				<div class="col-md-8 heading-section ftco-animate text-center">
-					<h2 class="mb-4">Easy Classes Advisory Board</h2>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					{% for member in BoardTeam %}
-					<div class="col-md-3 ftco-animate">
-							<div data-toggle="modal" data-target="#Modal-Board-{{ member.id }}" style="text-align:center;" class="item p-3">
-								<img src="{{ member.image.url }}" style="height: 200px;width:200px;border-radius:360px;"></img>
-								<div class="text p-2 p-md-2" style="text-align:center;width: 100%;">
-									<h5 class="mb-0">{{ member.name }}</h5>
-									<small>{{ member.role }}</small>
-								</div>
-							</div>
-					</div>
-					{% endfor %}
-				</div>
-			</div>
-    	</div>
-		{% for member in BoardTeam %}
-		<div id="Modal-Board-{{ member.id }}" class="modal fade" role="dialog">
-		  <div class="modal-dialog modal-lg">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<h4 class="modal-title">Board Member</h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			  </div>
-			  <div class="modal-body p-4">
-				<img loading="lazy" class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="{{ member.image_alt_text }}">
-				<h4>{{ member.name }}</h4>
-				<h6>{{ member.role }}</h6>
-				{{ member.description }}
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			  </div>
-			</div>
 
-		  </div>
-		</div>
-		{% endfor %}
-    </section>
+
+<!--	<section id="board" class="ftco-section bg-light">-->
+<!--    	<div class="container-fluid">-->
+<!--			<div class="row justify-content-center mb-5 pb-3">-->
+<!--				<div class="col-md-8 heading-section ftco-animate text-center">-->
+<!--					<h2 class="mb-4">Easy Classes Advisory Board</h2>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="container">-->
+<!--				<div class="row">-->
+<!--					{% for member in BoardTeam %}-->
+<!--					<div class="col-md-3 ftco-animate">-->
+<!--							<div data-toggle="modal" data-target="#Modal-Board-{{ member.id }}" style="text-align:center;" class="item p-3">-->
+<!--								<img src="{{ member.image.url }}" style="height: 200px;width:200px;border-radius:360px;"></img>-->
+<!--								<div class="text p-2 p-md-2" style="text-align:center;width: 100%;">-->
+<!--									<h5 class="mb-0">{{ member.name }}</h5>-->
+<!--									<small>{{ member.role }}</small>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--					</div>-->
+<!--					{% endfor %}-->
+<!--				</div>-->
+<!--			</div>-->
+<!--    	</div>-->
+<!--		{% for member in BoardTeam %}-->
+<!--		<div id="Modal-Board-{{ member.id }}" class="modal fade" role="dialog">-->
+<!--		  <div class="modal-dialog modal-lg">-->
+<!--			<div class="modal-content">-->
+<!--			  <div class="modal-header">-->
+<!--				<h4 class="modal-title">Board Member</h4>-->
+<!--				<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--			  </div>-->
+<!--			  <div class="modal-body p-4">-->
+<!--				<img loading="lazy" class="img-responsive img-thumbnail" src="{{ member.image.url }}" alt="{{ member.image_alt_text }}">-->
+<!--				<h4>{{ member.name }}</h4>-->
+<!--				<h6>{{ member.role }}</h6>-->
+<!--				{{ member.description }}-->
+<!--			  </div>-->
+<!--			  <div class="modal-footer">-->
+<!--				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--			  </div>-->
+<!--			</div>-->
+
+<!--		  </div>-->
+<!--		</div>-->
+<!--		{% endfor %}-->
+<!--    </section>-->
 {% endblock %}
