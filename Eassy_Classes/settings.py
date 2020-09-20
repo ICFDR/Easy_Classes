@@ -142,3 +142,5 @@ DJRICHTEXTFIELD_CONFIG = {
         'width': 800
     }
 }
+
+ALLOWED_HOSTS = ['*']
