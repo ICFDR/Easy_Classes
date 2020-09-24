@@ -274,6 +274,15 @@ class FellowSays(models.Model):
         verbose_name_plural = 'Fellow Says'
 
 
+class online(models.Model):
+    image = models.ImageField(upload_to='images/online/')
+
+
+class teacher(models.Model):
+    image = models.ImageField(upload_to='images/Teacher/')
+
+
+
 @receiver(models.signals.post_delete)
 def auto_delete_file_on_delete(instance, **kwargs):
     try:

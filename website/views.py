@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import (Slider, Vision, VisionIcons,
                      Gallery, OurCauses, AboutSWLP, AboutSWLPIcons,
                      JoinUs, LeaderSays, LeaderSaysSection, BoardTeam,
-                     OurChildrens, OrganizingTeam, BlogSection, Blogs,
-                     OurChildrensSection, AboutUs, Campaign, CampaignBlog,Fellowship,FellowSays,FellowshipImages
+                     OurChildrens, OrganizingTeam, BlogSection, Blogs, online,
+                     OurChildrensSection, AboutUs, Campaign, CampaignBlog,Fellowship,FellowSays,FellowshipImages, teacher,
                      )
 
 
@@ -106,3 +106,12 @@ def fellowship(request):
     }
 
     return render(request, 'fellowship.html',data)
+
+
+def online(request):
+    return render(request, 'online.html')
+
+
+def redirect_view(request):
+    response = redirect('about')
+    return response
