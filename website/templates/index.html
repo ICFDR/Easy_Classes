@@ -180,15 +180,34 @@
 </section>
 
 
+<style>
+
+	.videoWrapper {
+  position: relative;
+  padding-bottom: 56%;
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  justify-content: Center;
+  width: 60%;
+  height: 80%;
+
+}
+</style>
+
 <section>
 
 <h1 align="center" >iCFDR ANTHEM</h1>
 <br>
-<div style="text-align:center;" >
-<iframe width="1000" height="555" src="https://www.youtube.com/embed/iIhhWtwx6xE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="videoWrapper" style="text-align:center;" >
+<iframe src="https://www.youtube.com/embed/iIhhWtwx6xE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 </section>
+
 <!--<section class="ftco-section-3 img" style="padding:0;text-align:center;">
     <video style="height:90vh" muted controls data-play="hover">
         <source src="{% static 'images/Easy Classes Overview.webm' %}" type="video/mp4">
