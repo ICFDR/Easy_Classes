@@ -70,15 +70,34 @@
 <!--</section>-->
 <br>
 
+<style>
 
+	.videoWrapper {
+  position: relative;
+  padding-bottom: 56%;
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  justify-content: Center;
+  width: 60%;
+  height: 70%;
+
+}
+
+
+</style>
 
 <section>
 <h1 align="center" >Words from iCFDR family</h1>
 <br>
-<div style="text-align:center;" >
-<iframe width="1000" height="515" src="https://www.youtube.com/embed/HnD7z_jIn9A" frameborder="5" allow="accelerometer; align-items: center; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="videoWrapper" style="text-align:center;">
+<iframe src="https://www.youtube.com/embed/HnD7z_jIn9A" frameborder="5" allow="accelerometer; align-items: center; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+
 </section>
-<br>
+
 {% endblock %}
